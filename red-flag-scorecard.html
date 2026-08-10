@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Red Flag Scorecard — Ledger &amp; Co.</title>
+<meta name="description" content="Twelve questions that surface the warning signs behind most bad investments. Free, instant, nothing saved.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B2E1F; --paper:#F4F3EC; --bar:#E3EDE4; --rule:#CBD6CC;
+    --flag:#B23A2E; --caution:#B07D18; --clear:#1B7A3D; --muted:#6B7A70;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  [hidden]{display:none!important}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.5;padding-bottom:120px}
+  .num{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+
+  header{background:var(--ink);color:#fff;padding:34px 20px 30px}
+  .wrap{max-width:1080px;margin:0 auto}
+  .brand{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#9DBFAB;margin-bottom:18px}
+  h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(34px,7vw,58px);line-height:1.02;letter-spacing:-.02em}
+  .thesis{margin-top:14px;max-width:620px;color:#C3D6C9;font-size:16px}
+  .howto{margin-top:22px;padding-top:18px;border-top:1px solid #2A4A38;font-size:13px;color:#8FAE9C;max-width:620px}
+
+  .grid{max-width:1080px;margin:0 auto;padding:0 20px;display:grid;grid-template-columns:1fr 268px;gap:40px;align-items:start}
+
+  /* Questions */
+  .sheet{margin-top:34px;border-top:2px solid var(--ink)}
+  .q{display:grid;grid-template-columns:34px 1fr;gap:12px;padding:20px 14px;border-bottom:1px solid var(--rule);position:relative;transition:background .18s}
+  .q:nth-child(odd){background:var(--bar)}
+  .q.answered:nth-child(odd){background:rgba(227,237,228,.45)}
+  .q::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:transparent;transition:background .2s}
+  .q[data-state="2"]::before{background:var(--flag)}
+  .q[data-state="1"]::before{background:var(--caution)}
+  .q[data-state="0"]::before{background:var(--clear)}
+  .qn{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);padding-top:3px}
+  .qt{font-size:16px;font-weight:500;line-height:1.45}
+  .opts{grid-column:2;display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+  .opt{flex:1 1 0;min-width:96px;display:flex;align-items:center;justify-content:space-between;gap:8px;
+    padding:11px 13px;border:1.5px solid var(--rule);border-radius:8px;background:#fff;color:var(--ink);
+    cursor:pointer;font-family:'Inter',sans-serif;font-size:14px;font-weight:600;transition:all .15s}
+  .opt:hover{border-color:var(--ink)}
+  .opt:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+  .pts{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:var(--muted)}
+  .opt[aria-pressed="true"]{color:#fff;border-color:transparent}
+  .opt[aria-pressed="true"] .pts{color:rgba(255,255,255,.75)}
+  .opt.yes[aria-pressed="true"]{background:var(--flag)}
+  .opt.unsure[aria-pressed="true"]{background:var(--caution)}
+  .opt.no[aria-pressed="true"]{background:var(--clear)}
+
+  /* Rail */
+  .rail{position:sticky;top:26px;margin-top:34px}
+  .rail-inner{border:2px solid var(--ink);background:#fff;padding:20px}
+  .rail-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .score{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:56px;line-height:1;letter-spacing:-.03em}
+  .score span:last-child{font-size:20px;color:var(--muted)}
+  .meter{height:10px;background:var(--bar);border:1px solid var(--rule);margin:16px 0 6px;overflow:hidden}
+  .fill{height:100%;width:0;background:var(--clear);transition:width .35s cubic-bezier(.4,0,.2,1),background .35s}
+  .meter-legend{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--muted)}
+  .band{margin-top:18px;padding:12px;border:1px solid var(--rule);font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;text-align:center;color:var(--muted)}
+  .band.f2{background:var(--flag);color:#fff;border-color:var(--flag)}
+  .band.f1{background:var(--caution);color:#fff;border-color:var(--caution)}
+  .band.f0{background:var(--clear);color:#fff;border-color:var(--clear)}
+  .verdict{margin-top:12px;font-size:13px;line-height:1.5}
+  .progress{margin-top:16px;padding-top:12px;border-top:1px solid var(--rule);font-family:'IBM Plex Mono',monospace;
+    font-size:11px;color:var(--muted);display:flex;justify-content:space-between}
+  .reset{margin-top:14px;width:100%;padding:10px;background:none;border:1px solid var(--rule);border-radius:6px;
+    cursor:pointer;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--muted)}
+  .reset:hover{border-color:var(--ink);color:var(--ink)}
+
+  /* ===== REPORT ===== */
+  .report{margin-top:34px}
+  .rep-hero{border:2px solid var(--ink);background:#fff;padding:30px 26px}
+  .rep-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .rep-score{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:68px;line-height:1;letter-spacing:-.03em;margin-top:6px}
+  .rep-score span{font-size:22px;color:var(--muted)}
+  .rep-band{display:inline-block;margin-top:14px;padding:7px 14px;font-family:'IBM Plex Mono',monospace;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:#fff;background:var(--muted)}
+  .rep-band.f2{background:var(--flag)} .rep-band.f1{background:var(--caution)} .rep-band.f0{background:var(--clear)}
+  .rep-verdict{margin-top:16px;font-size:16px;line-height:1.55;max-width:600px}
+  .rep-tally{display:flex;gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:22px}
+  .rep-tally > div{flex:1;background:var(--paper);padding:14px 12px;text-align:center}
+  .rep-tally .n{font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;line-height:1}
+  .rep-tally .l{font-size:11px;color:var(--muted);margin-top:5px}
+  .rep-tally .t2 .n{color:var(--flag)} .rep-tally .t1 .n{color:var(--caution)} .rep-tally .t0 .n{color:var(--clear)}
+
+  /* Track toggle inside the report */
+  .track{display:flex;gap:8px;margin-top:22px}
+  .tbtn{flex:1;padding:12px;border:1.5px solid var(--rule);border-radius:8px;background:#fff;cursor:pointer;
+    font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:var(--muted);text-align:center;transition:all .15s}
+  .tbtn small{display:block;font-weight:400;font-size:11px;margin-top:2px;opacity:.8}
+  .tbtn[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .tbtn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+  /* ===== Top view switch ===== */
+  .viewswitch{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--rule);padding:12px 20px}
+  .vs-inner{max-width:1080px;margin:0 auto;display:flex;gap:8px}
+  .vbtn{flex:1;padding:12px;border:1.5px solid var(--rule);border-radius:8px;background:#fff;cursor:pointer;
+    font-family:'Inter',sans-serif;font-size:14px;font-weight:600;color:var(--muted);text-align:center;transition:all .15s}
+  .vbtn small{display:block;font-weight:400;font-size:11px;margin-top:2px;opacity:.8}
+  .vbtn[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .vbtn:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+
+  /* ===== Learn ===== */
+  .lwrap{max-width:820px;margin:0 auto;padding:0 20px}
+  .learnwrap section{padding:40px 0}
+  .learnwrap h2{font-family:'Fraunces',serif;font-size:28px;font-weight:600;margin-bottom:6px;letter-spacing:-.01em}
+  .learnwrap .lede{color:var(--muted);font-size:15px;margin-bottom:22px}
+  .primer{background:var(--bar);border-left:3px solid var(--clear);padding:24px}
+  .primer h3{font-size:16px;font-weight:600;margin:18px 0 6px}
+  .primer h3:first-child{margin-top:0}
+  .primer p{font-size:15px;color:#33443B;line-height:1.6}
+  .lsign{border-top:1px solid var(--rule);padding:24px 0}
+  .lsign-h{display:flex;gap:13px;align-items:baseline}
+  .lsign-n{font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:var(--flag)}
+  .lsign h3{font-family:'Fraunces',serif;font-size:20px;font-weight:600;line-height:1.28;letter-spacing:-.01em}
+  .lcat{display:inline-block;margin:8px 0 0 25px;padding:3px 8px;border:1px solid var(--rule);
+    font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .lblk{margin-top:15px;padding-left:25px}
+  .lblk h4{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--clear);margin-bottom:4px}
+  .lblk h4.w{color:var(--flag)}
+  .lblk p{font-size:15px;color:#2A3B33;line-height:1.6}
+  .learn-cta{background:var(--ink);color:#fff;margin:24px 0 48px;padding:34px 26px}
+  .learn-cta h2{color:#fff;margin-bottom:8px}
+  .learn-cta p{color:#C3D6C9;font-size:15px;max-width:520px;margin-bottom:20px}
+  .learn-cta .btn{background:#fff;color:var(--ink);border-color:#fff}
+
+  .rep-sec{margin-top:34px}
+  .rep-sec h2{font-family:'Fraunces',serif;font-size:26px;font-weight:600;margin-bottom:4px}
+  .rep-sec .sub{color:var(--muted);font-size:14px;margin-bottom:20px}
+
+  .item{background:#fff;border:1px solid var(--rule);border-left:3px solid var(--rule);margin-bottom:14px}
+  .item.f2{border-left-color:var(--flag)}
+  .item.f1{border-left-color:var(--caution)}
+  .item-h{padding:16px 18px 0;display:flex;gap:12px;align-items:baseline}
+  .item-n{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:600;color:var(--muted)}
+  .item-h h3{font-family:'Fraunces',serif;font-size:19px;font-weight:600;line-height:1.3}
+  .tag{display:inline-block;margin:10px 0 0 41px;padding:3px 8px;font-family:'IBM Plex Mono',monospace;
+    font-size:9px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:#fff}
+  .tag.f2{background:var(--flag)} .tag.f1{background:var(--caution)}
+  .blk{padding:0 18px 16px 41px;margin-top:14px}
+  .blk h4{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--clear);margin-bottom:5px}
+  .blk p{font-size:15px;color:#2A3B33;line-height:1.55}
+  .gb{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);border-top:1px solid var(--rule)}
+  .gb > div{background:var(--paper);padding:13px 16px;font-size:14px;line-height:1.5}
+  .gb .lbl{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;display:block;margin-bottom:5px;font-weight:600}
+  .gb .g .lbl{color:var(--clear)} .gb .b .lbl{color:var(--flag)}
+  .doit{background:var(--bar);padding:14px 18px 14px 41px;font-size:14px;color:#2A3B33;border-top:1px solid var(--rule);line-height:1.55}
+  .doit strong{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);display:block;margin-bottom:5px;font-weight:600}
+  @media(max-width:640px){.gb{grid-template-columns:1fr}}
+
+  .cleared{border:1px solid var(--rule);background:#fff;padding:18px}
+  .cleared h4{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--clear);margin-bottom:10px}
+  .cleared ul{margin-left:18px;font-size:14px;color:var(--muted)}
+  .cleared li{margin-bottom:4px}
+
+  .next{border:2px solid var(--ink);background:#fff;margin-top:14px}
+  .next-h{padding:12px 18px;color:#fff;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+  .next.f2 .next-h{background:var(--flag)} .next.f1 .next-h{background:var(--caution)} .next.f0 .next-h{background:var(--clear)}
+  .next-b{padding:16px 18px;font-size:15px}
+  .next-b ul{margin:0 0 0 18px} .next-b li{margin-bottom:7px}
+
+  .actions{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+  .btn{padding:13px 20px;border-radius:8px;cursor:pointer;text-decoration:none;font-family:'Inter',sans-serif;
+    font-size:14px;font-weight:600;border:1.5px solid var(--ink);display:inline-block}
+  .btn.primary{background:var(--ink);color:#fff}
+  .btn.ghost{background:none;color:var(--ink)}
+  .btn.ghost:hover{background:var(--bar)}
+  .note{margin-top:16px;font-size:12px;color:var(--muted);max-width:520px}
+
+  .patterns{max-width:1080px;margin:56px auto 0;padding:0 20px}
+  .patterns h2{font-family:'Fraunces',serif;font-size:26px;font-weight:600;margin-bottom:6px}
+  .patterns p.sub{color:var(--muted);font-size:14px;margin-bottom:22px}
+  .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+  .p{background:var(--paper);padding:20px}
+  .p .k{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--flag);letter-spacing:.1em;margin-bottom:8px}
+  .p h3{font-size:15px;font-weight:600;margin-bottom:6px}
+  .p p{font-size:13px;color:var(--muted);line-height:1.5}
+
+  .sitecta{background:var(--ink);color:#fff;margin-top:56px;padding:36px 20px}
+  .sitecta .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .sitecta h2{font-family:'Fraunces',serif;font-size:26px;font-weight:600;color:#fff;margin-bottom:6px}
+  .sitecta p{color:#C3D6C9;font-size:15px;max-width:480px}
+  .sitecta .btn{background:#fff;color:var(--ink);border-color:#fff;white-space:nowrap}
+
+  footer{max-width:1080px;margin:48px auto 0;padding:24px 20px 40px;border-top:1px solid var(--rule);
+    font-size:11px;color:var(--muted);line-height:1.6}
+
+  @media(max-width:860px){
+    .grid{grid-template-columns:1fr;gap:0}
+    .rail{position:fixed;top:auto;bottom:0;left:0;right:0;margin:0;z-index:20}
+    .rail-inner{border:none;border-top:2px solid var(--ink);padding:12px 16px;display:grid;
+      grid-template-columns:auto 1fr;gap:14px;align-items:center;box-shadow:0 -6px 22px rgba(11,46,31,.13)}
+    .rail-label,.verdict,.meter-legend,.reset{display:none}
+    .score{font-size:34px}
+    .meter{margin:8px 0 0}
+    .band{margin-top:0;padding:8px;font-size:10px}
+    .progress{margin:6px 0 0;padding:0;border:none}
+    .opt{min-width:0;padding:11px 10px;font-size:13px}
+    .rep-score{font-size:52px}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">Ledger &amp; Co.</div>
+    <h1>The Red Flag<br>Scorecard</h1>
+    <p class="thesis">Twelve questions that surface the warning signs behind most bad investments — before your money is committed and hard to get back.</p>
+    <p class="howto">Tap an answer for each question. Your risk score updates as you go. At the end you get a full breakdown of every flag you raised. Nothing is saved or sent anywhere.</p>
+  </div>
+</header>
+
+<div class="viewswitch">
+  <div class="vs-inner">
+    <button class="vbtn" id="vLearn" type="button" aria-pressed="true">Start here<small>Learn the twelve signs</small></button>
+    <button class="vbtn" id="vTest" type="button" aria-pressed="false">Take the test<small>Score your situation</small></button>
+  </div>
+</div>
+
+<!-- ============ LEARN ============ -->
+<div class="learnwrap" id="learn">
+  <div class="lwrap">
+    <section>
+      <h2>Five things to know first</h2>
+      <p class="lede">If you read nothing else, read this. Everything below rests on it.</p>
+      <div class="primer">
+        <h3>1. Risk and return are joined at the hip.</h3>
+        <p>Higher potential return always means a higher chance of loss. Always. Anyone offering high returns with low or no risk is either lying to you or doesn't understand their own product. There is no third option.</p>
+        <h3>2. Fees are quiet and enormous.</h3>
+        <p>A fee sounds small as a percentage and lands hard over time. It comes out whether you gain or lose, every single year, and it compounds against you.</p>
+        <h3>3. Being able to get your money out is part of the investment.</h3>
+        <p>You can be completely right about something and still be ruined by not being able to access your money when you need it. Check the exit before you check the upside.</p>
+        <h3>4. You can verify almost anyone for free, in two minutes.</h3>
+        <p>In the US, brokers are searchable at <strong>brokercheck.finra.org</strong>, investment advisers at <strong>adviserinfo.sec.gov</strong>, and both at <strong>investor.gov</strong>. Almost nobody checks. Checking puts you ahead of almost everybody.</p>
+        <h3>5. "I don't understand it" is a complete reason to say no.</h3>
+        <p>You are never obligated to invest in something you can't explain. Confusion is not a personal failing to push through — very often it is the product working as designed.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>The twelve warning signs</h2>
+      <p class="lede">What each one means, why it matters, and the one thing to actually do.</p>
+      <div id="learnList"></div>
+    </section>
+
+    <div class="learn-cta">
+      <h2>Now score your situation</h2>
+      <p>Twelve questions, about a minute. You'll get a breakdown of every flag you raise. Free — no email, no signup, nothing saved.</p>
+      <button class="btn primary" id="goTest" type="button">Take the test →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TEST ============ -->
+<div class="grid" id="test" hidden>
+  <main>
+    <div class="sheet" id="sheet"></div>
+    <div class="report" id="report" hidden></div>
+  </main>
+
+  <aside class="rail">
+    <div class="rail-inner">
+      <div>
+        <div class="rail-label">Risk score</div>
+        <div class="score num"><span id="scoreVal">—</span><span>/100</span></div>
+      </div>
+      <div>
+        <div class="meter"><div class="fill" id="fill"></div></div>
+        <div class="meter-legend"><span>0</span><span>50</span><span>100</span></div>
+        <div class="band" id="band">Awaiting answers</div>
+        <p class="verdict" id="verdict">Answer all twelve to see your verdict.</p>
+        <div class="progress">
+          <span id="prog">0 of 12 answered</span>
+          <span id="flags">0 flags</span>
+        </div>
+        <button class="reset" id="reset">Start over</button>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<section class="patterns">
+  <h2>The four patterns behind most bad deals</h2>
+  <p class="sub">Every question above traces back to one of these.</p>
+  <div class="pgrid">
+    <div class="p"><div class="k">01</div><h3>Return claims</h3><p>“Guaranteed,” “risk-free,” or unusually high and steady returns. Real markets do not behave that way.</p></div>
+    <div class="p"><div class="k">02</div><h3>Transparency</h3><p>You cannot get straight, written answers about how it makes money, who runs it, or where your funds go.</p></div>
+    <div class="p"><div class="k">03</div><h3>Exit &amp; liquidity</h3><p>Getting your money back out is slow, penalised, or blocked. Trouble exiting is the classic late warning.</p></div>
+    <div class="p"><div class="k">04</div><h3>Source credibility</h3><p>Unregistered sellers, unsolicited outreach, urgency, secrecy, or structures that ask you to recruit others.</p></div>
+  </div>
+</section>
+
+<div class="sitecta">
+  <div class="wrap">
+    <div>
+      <h2>Built by Ledger &amp; Co.</h2>
+      <p>Financial education for people who'd rather run a process than a guess. Guides, calculators, and systems for every level.</p>
+    </div>
+    <a class="btn primary" href="https://onestopdesignshop.github.io/Ledger-co-site/">Explore Ledger &amp; Co. →</a>
+  </div>
+</div>
+
+<footer>
+  <p><strong>Educational tool — not financial, investment, or legal advice.</strong> This scorecard is not a guarantee or prediction of any outcome and cannot tell you whether a specific investment is safe or fraudulent. It helps you think through common warning signs. Regulatory resources named are US-based; other countries have equivalents. Always do your own research and consider consulting a licensed professional.</p>
+  <p style="margin-top:10px">© Ledger &amp; Co. · Leadership · Education · Discipline · Growth · Excellence · Research</p>
+</footer>
+
+<script>
+const Q = [
+{
+ t:"Are you promised — or do you expect — high returns with little or no risk?",
+ c:"Return claims",
+ bm:"Someone is telling you that you can earn a lot without much chance of losing.",
+ bw:"This is the single most common feature of investment fraud. If a genuinely safe way to earn 20% existed, institutions with billions would pour in until the return collapsed. It doesn't sit around waiting to be offered to you in a DM.",
+ ba:"Compare it to the boring baseline. Look up the yield on a 3-month US Treasury bill — that's about as close to risk-free as money gets. Any promise of far more than that <em>with no risk</em> is where the lie lives.",
+ why:"Return above the risk-free rate is compensation for taking risk. It isn't a reward for being clever or early. If a genuinely safe way to earn 20% existed, institutions with billions would pour in until the return collapsed — it would not be sitting around waiting to be offered to you.",
+ good:"\"Expected return is X. Here is the range of outcomes. Here is our worst year and what caused it.\"",
+ bad:"\"Guaranteed.\" \"Risk-free.\" \"We've never had a down month.\" \"Fixed 2% monthly.\"",
+ act:"Ask what specific risk you are being paid to take. If nobody can name it, there is no strategy. Then ask for the worst month, worst year, and maximum drawdown — every real strategy has them.",
+ unsure:"Find out what the actual return claim is, in writing, and compare it to a 3-month Treasury bill. That's your risk-free baseline. Anything far above it with \"no risk\" attached is where the lie lives."
+},
+{
+ t:"Is there pressure to act fast, or a deadline that discourages thinking it over?",
+ c:"Source credibility",
+ bm:"There's a deadline, a closing window, or a sense that hesitating will cost you.",
+ bw:"Urgency is a sales tactic, not a feature of good investments. It exists to stop you thinking, comparing, and asking someone else.",
+ ba:"Say: <em>\"I need a week.\"</em> Then watch. A legitimate seller says fine. A fraudster escalates, guilt-trips, or suddenly finds a reason it must be tonight.",
+ why:"Urgency exists to stop you thinking, comparing, and asking someone else. Fraud depends entirely on you not doing those three things. It also serves the seller structurally — money must arrive before you research.",
+ good:"\"The round closes on the 30th, here's the term sheet. Take your time — if you miss this one there will be others.\"",
+ bad:"\"Spots are filling up.\" \"The price goes up at midnight.\" \"I can only hold this for you today.\"",
+ act:"Say \"I need a week\" and watch what happens. A legitimate seller says fine. A fraudster escalates, guilt-trips, or suddenly finds a reason it must be tonight. That reaction is worth more than the pitch.",
+ unsure:"Ask for the deadline in writing, with the reason for it. Real closes are documented. Then test it — passing on a real opportunity costs you one opportunity. Rushing into a fraud costs you the principal."
+},
+{
+ t:"Is it hard to get clear, written answers about how the investment actually makes money?",
+ c:"Transparency",
+ bm:"When you ask where the returns come from, you get a vague, impressive-sounding non-answer.",
+ bw:"Every legitimate investment has an engine. A company sells things. A bond pays interest. A property collects rent. If nobody will name the engine, you have to consider that there may not be one.",
+ ba:"Ask: <em>\"Where does the money actually come from?\"</em> Then ask again about whatever part you didn't follow. Keep going until you understand it or run out of patience. Running out of patience is an answer.",
+ why:"Every legitimate investment has an engine — a company sells things, a bond pays interest, a property collects rent. A Ponzi scheme has no engine at all, which is precisely why its strategy can never survive a follow-up question. The absence of an explanation is not a communication problem. It is the structure.",
+ good:"A specific, documented strategy, audited statements, an independent custodian, and an administrator you can call.",
+ bad:"\"Proprietary algorithm.\" \"Secret arbitrage.\" \"You wouldn't understand the strategy.\"",
+ act:"Ask where the money actually comes from — then keep asking about whatever part you didn't follow. Ask who holds the assets and who prices them. If the manager marks their own book, the returns are an opinion.",
+ unsure:"Get the strategy in writing. Ask for audited financials, then verify the auditor is real and independent. A large fund with a tiny unknown auditor is a serious structural warning."
+},
+{
+ t:"Would it be difficult, slow, or costly to get your money back out if you needed it?",
+ c:"Exit &amp; liquidity",
+ bm:"It's unclear, slow, expensive, or awkward to withdraw your money.",
+ bw:"You can be completely right about an investment and still be wiped out by not reaching your money when you need it. A blocked exit is often the first visible sign something has already gone wrong.",
+ ba:"Before you put a dollar in, ask exactly how you take it out: what steps, how many days, what it costs. Get the answer in writing.",
+ why:"You can be completely right about an investment and still be wiped out by not reaching your money when you need it. And a blocked exit is very often the first visible sign that something has already gone wrong inside.",
+ good:"Written redemption terms, a lock-up you agreed to in advance, and a clear fee schedule.",
+ bad:"Withdrawals \"processing\" indefinitely. Access \"temporarily paused.\" A fee required <em>before</em> your funds can be released.",
+ act:"Read the redemption terms in the offering documents — not the pitch deck. Ask what happens if many investors withdraw at once. Watch for any restriction that appears only <em>after</em> you ask to leave.",
+ unsure:"Before a dollar moves, get it in writing: what steps, how many days, what it costs to withdraw. If nobody will put that in an email, you have your answer."
+},
+{
+ t:"Is the person or company unregistered, unlicensed, or impossible to verify with a regulator?",
+ c:"Source credibility",
+ bm:"You can't confirm that this person or firm is who and what they claim to be.",
+ bw:"Registration is no guarantee of honesty — but its absence is an enormous signal, and checking is free. Most people never do it, which is exactly what the pitch is counting on.",
+ ba:"Two minutes: search the person and the firm at <strong>brokercheck.finra.org</strong> and <strong>adviserinfo.sec.gov</strong>. Both are also searchable from <strong>investor.gov</strong>.",
+ why:"Registration creates a public record — disciplinary history, complaints, regulatory actions. It's no guarantee of honesty, but its absence is an enormous signal, and checking is free. Almost nobody checks, which is exactly what the pitch counts on.",
+ good:"A clean, findable record for both the individual and the firm, matching the details you were given.",
+ bad:"No record. Undisclosed disciplinary history. A firm name that's <em>almost</em> a famous one.",
+ act:"Two minutes: search the person <strong>and</strong> the firm at brokercheck.finra.org and adviserinfo.sec.gov. Find the firm's phone number independently and call that — never the number they gave you.",
+ unsure:"Look them up right now at investor.gov. If they claim an exemption from registration, ask which one, in writing, and verify it. Some exemptions are real. Vagueness is not."
+},
+{
+ t:"Did this arrive through an unsolicited message, DM, or a contact you cannot fully verify?",
+ c:"Source credibility",
+ bm:"A stranger contacted you — a DM, a text to the wrong number, a dating app, a social post.",
+ bw:"Legitimate investments do not need to cold-message strangers. If they found you, ask why you.",
+ ba:"Never move money onto a platform someone introduced you to. Never install an investment app from a link rather than the official app store.",
+ why:"This is the shape of relationship investment fraud: contact via a wrong-number text or dating app, weeks of genuine-feeling rapport, the investment mentioned almost reluctantly, a slick platform showing real-looking gains, then the exit closes. The most dangerous version never feels like a scam — because by the time money comes up, the relationship feels real.",
+ good:"You found them. You initiated. They're verifiable independently.",
+ bad:"They found you. The platform came from them. Nobody you know has heard of it.",
+ act:"Never move money onto a platform someone introduced you to. Never install an investment app from a link rather than the official app store. A small successful early withdrawal is a <em>tactic</em>, not evidence — it exists to make you deposit more.",
+ unsure:"Reverse-image-search their photos. Insist on a live, unscripted video call — evasion is diagnostic. Check whether the platform exists anywhere outside the link they sent."
+},
+{
+ t:"Are the fees, terms, or ownership structure confusing or deliberately vague?",
+ c:"Transparency",
+ bm:"You can't say, as a single number, what this actually costs you per year.",
+ bw:"Fees come out whether you win or lose, every year, forever. Complexity is very often where cost hides.",
+ ba:"Ask one question: <em>\"What is my total annual cost, as one percentage, including everything?\"</em> If they can't or won't produce a single number, you have your answer.",
+ why:"Fees come out whether you win or lose, every year, forever. And they compound against you. $100,000 over 30 years at 7%: with a 0.1% fee you end with about $740,000. With a 2% fee, about $432,000. That 2% didn't cost you 2% — it cost roughly 40% of your outcome, quietly, in years where nothing appeared to go wrong.",
+ good:"A single all-in number, in writing, that matches the documents.",
+ bad:"\"It depends.\" \"Our fees are competitive.\" Fees that only surface in a document you're asked to sign quickly.",
+ act:"Ask one question: what is my total annual cost, as one percentage, including everything? If they can't or won't produce a single number, that is the answer.",
+ unsure:"For any fund, the total expense ratio is stated in the prospectus. Read it. If there's no prospectus, ask why not. Fees are the one variable here you fully control."
+},
+{
+ t:"Does the pitch lean on hype, status, or fear of missing out more than on numbers and documents?",
+ c:"Source credibility",
+ bm:"The pitch is a feeling — excitement, belonging, the fear of being left behind — rather than a document.",
+ bw:"Excitement is not evidence. Neither is the fact that people you like are already in. Emotion is what gets used <em>instead</em> of proof when proof isn't available.",
+ ba:"Ask for the paperwork. Note carefully whether what comes back is a document — or another story.",
+ why:"This is the engine of affinity fraud — schemes that spread through a church, a profession, a community, an online tribe. Trust in the group substitutes for verification of the investment. Early participants are genuinely enthusiastic because they haven't lost anything <em>yet</em>, which makes the social proof completely sincere. That's exactly what makes it work.",
+ good:"An offering document, audited numbers, and a seller comfortable with you taking your time.",
+ bad:"Screenshots of gains. Lifestyle photos. \"Do you trust me?\" A room full of people who all found it through each other.",
+ act:"Separate the pitch from the paper. Insist on reading the actual offering document. \"Everyone in my group is in\" is not diligence — it usually means nobody in the group did any.",
+ unsure:"Ask for the paperwork and note carefully whether what comes back is a document — or another story. A testimonial tells you nothing about the mechanism."
+},
+{
+ t:"Are returns described as unusually smooth or consistent, whatever the market does?",
+ c:"Return claims",
+ bm:"The chart goes up in a suspiciously straight line. Few losses, no bad months.",
+ bw:"Real investments move around — that's what taking risk looks like from the inside. A line that never dips isn't a sign of skill. It's a sign something isn't being reported honestly.",
+ ba:"Ask for month-by-month results, including the worst ones. Every genuine strategy has bad months. A manager who can't produce any is telling you something.",
+ why:"Implausible smoothness has three usual explanations and none is good. The numbers are fabricated. Or the assets are illiquid and marked at cost, so losses haven't been recognised. Or the strategy is quietly selling tail risk — small steady premiums, rare catastrophic downside. That third one looks like genius for years and then removes the principal in a week.",
+ good:"Volatility that fits the asset class, disclosed drawdowns, independent pricing and audit.",
+ bad:"A near-straight line. \"We've never had a down quarter.\" Returns steady <em>regardless</em> of what markets did.",
+ act:"Ask for maximum drawdown, worst month, and standard deviation. Ask who independently prices the assets. Ask what would have to happen for this to lose 30% — a real manager answers instantly, because they think about it constantly.",
+ unsure:"Ask for month-by-month results, including the worst ones. Every genuine strategy has bad months. A manager who cannot produce a single one is telling you something."
+},
+{
+ t:"Are you encouraged to recruit others, or to bring in friends and family?",
+ c:"Exit &amp; liquidity",
+ bm:"You earn more — or earn at all — by bringing in other people.",
+ bw:"If your return depends on recruitment, it isn't an investment. It's a pyramid, and pyramids are guaranteed to collapse. Not likely to. Guaranteed.",
+ ba:"Ask one question: <em>\"Do I earn anything from recruiting people?\"</em> If the answer is yes, you're done here.",
+ why:"Recruitment-driven structures collapse for arithmetic reasons, not bad luck. If each person recruits six, six levels down needs 46,656 people. Ten levels needs over 60 million. The maths runs out of human beings long before it runs out of enthusiasm — which means most participants must lose money by design, not by mismanagement.",
+ good:"Revenue comes from real customers who are not participants.",
+ bad:"Your income depends on downline. You must buy inventory. \"It's not a pyramid, it's a network.\"",
+ act:"Ask what percentage of revenue comes from sales to people <em>outside</em> the scheme versus from recruitment. Ask to see it broken out in writing. The reluctance is the answer.",
+ unsure:"Ask one question: do I earn anything from recruiting people? If yes, you're done. The people above you aren't lying — they're still in the phase that's paid for by people like you."
+},
+{
+ t:"Have you been discouraged from involving an outside advisor, lawyer, or your own research?",
+ c:"Source credibility",
+ bm:"Involving your accountant, your lawyer, or a sceptical friend is treated as an obstacle.",
+ bw:"Anyone who doesn't want you to check with someone else has just told you something important about what checking would reveal.",
+ ba:"Say: <em>\"I'm running this past my accountant first.\"</em> The reaction to that sentence is worth more than anything else they've told you.",
+ why:"Isolation is a deliberate control tactic, and it's usually the last one deployed before money moves. Anyone who doesn't want you to check with someone else has just told you something important about what checking would reveal.",
+ good:"\"Of course — send it to your advisor. Here's everything they'll need.\"",
+ bad:"\"Advisors don't get this.\" \"They'll just be jealous.\" \"Keep it between us.\"",
+ act:"Bring in a professional who is not paid by the seller and has no relationship with them. The seller's <em>reaction</em> to that step is higher-quality information than anything in the pitch deck.",
+ unsure:"Say the sentence out loud: \"I'm running this past my accountant first.\" Then watch. Legitimate businesses survive scrutiny — that is essentially the whole difference."
+},
+{
+ t:"Does any part of it require secrecy, or feel like something you would hesitate to explain out loud?",
+ c:"Transparency",
+ bm:"You're asked to keep it quiet — or you notice you'd rather not explain it out loud.",
+ bw:"That hesitation is your own risk assessment leaking out before your conscious mind has caught up. It is worth listening to.",
+ ba:"Explain the whole thing, out loud, to one person whose judgement you trust. Notice which parts you find yourself softening.",
+ why:"Secrecy serves the seller and nobody else. It prevents verification, prevents comparison, and delays detection — buying the scheme time it couldn't otherwise buy. And that hesitation you feel is your own risk assessment leaking out before your conscious mind has caught up.",
+ good:"You can describe the entire thing, plainly, to anyone, and it holds up.",
+ bad:"\"Don't tell anyone.\" \"This is only for a few people.\" \"Don't mention it to your wife until it's done.\"",
+ act:"Explain the whole thing out loud to one person whose judgement you trust. Watch for what you instinctively soften, skip, or reframe. That is the part you already don't believe.",
+ unsure:"Any secrecy request that extends to your spouse, your accountant, or your lawyer is disqualifying. Not a yellow flag — disqualifying. There is no legitimate version of that request."
+}
+];
+
+const OPTS = [
+  {key:"yes", label:"Yes", pts:2},
+  {key:"unsure", label:"Not sure", pts:1},
+  {key:"no", label:"No", pts:0}
+];
+
+const answers = new Array(Q.length).fill(null);
+const sheet = document.getElementById("sheet");
+
+Q.forEach((q, i) => {
+  const row = document.createElement("div");
+  row.className = "q";
+
+  const n = document.createElement("div");
+  n.className = "qn";
+  n.textContent = String(i+1).padStart(2,"0");
+
+  const t = document.createElement("div");
+  t.className = "qt";
+  t.textContent = q.t;
+
+  const opts = document.createElement("div");
+  opts.className = "opts";
+  opts.setAttribute("role","group");
+  opts.setAttribute("aria-label","Question " + (i+1));
+
+  OPTS.forEach(o => {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "opt " + o.key;
+    b.setAttribute("aria-pressed","false");
+    const lab = document.createElement("span");
+    lab.textContent = o.label;
+    const pts = document.createElement("span");
+    pts.className = "pts";
+    pts.textContent = o.pts === 0 ? "0" : "+" + o.pts;
+    b.append(lab, pts);
+    b.addEventListener("click", () => select(i, o.pts, b, opts, row));
+    opts.appendChild(b);
+  });
+
+  row.append(n, t, opts);
+  sheet.appendChild(row);
+});
+
+function select(i, pts, btn, group, row){
+  group.querySelectorAll(".opt").forEach(b => b.setAttribute("aria-pressed","false"));
+  btn.setAttribute("aria-pressed","true");
+  answers[i] = pts;
+  row.classList.add("answered");
+  row.dataset.state = pts;
+  update();
+}
+
+const BANDS = {
+  2:["High risk","This pattern matches how most investment losses and frauds actually look from the inside. There are strong reasons to stop and investigate — or walk away — before any money moves."],
+  1:["Caution","Real warning signs are present. This is the point at which most people talk themselves into it anyway. Get every claim in writing and verify the seller independently before you proceed."],
+  0:["Lower risk","Few flags raised. That is not the same as safe — it means nothing obvious is wrong. Keep verifying the source, the fees, and how you would exit."]
+};
+
+const NEXT = {
+  2:["Stop sending money — including any fee \"required to release\" your funds. That request is itself near-conclusive.",
+     "Do not tell the seller you are investigating. Fraudsters accelerate when discovered.",
+     "Save everything: messages, screenshots, names, wallet addresses, bank details.",
+     "Report it. In the US: sec.gov/tcr, reportfraud.ftc.gov, and ic3.gov for anything online. Your state securities regulator too.",
+     "If money has already gone, contact your bank now. Speed matters enormously."],
+  1:["Do not send money while you are still unsure. There is no deadline worth this.",
+     "Put every claim they made into an email and ask them to confirm it in writing. Watch what happens.",
+     "Take it to one independent person who is not paid by the seller.",
+     "Work through each flag below and get it <em>answered</em> — not explained away."],
+  0:["Verify the seller at investor.gov before any money moves.",
+     "Get the total annual cost, as one number, in writing.",
+     "Write down in one sentence how this makes money. If you can't, stop.",
+     "Decide in advance what would make you exit — and how you'd do it."]
+};
+
+function update(){
+  const done = answers.filter(a => a !== null).length;
+  const points = answers.reduce((s,a) => s + (a||0), 0);
+  const max = Q.length * 2;
+  const score = Math.round(points / max * 100);
+  const flags = answers.filter(a => a === 2).length;
+  const unsure = answers.filter(a => a === 1).length;
+  const clear = answers.filter(a => a === 0).length;
+
+  document.getElementById("prog").textContent = done + " of " + Q.length + " answered";
+  document.getElementById("flags").textContent = flags + (flags === 1 ? " flag" : " flags");
+
+  const fill = document.getElementById("fill");
+  fill.style.width = score + "%";
+
+  const level = score >= 50 ? 2 : score >= 25 ? 1 : 0;
+  fill.style.background = level === 2 ? "var(--flag)" : level === 1 ? "var(--caution)" : "var(--clear)";
+
+  document.getElementById("scoreVal").textContent = done ? score : "—";
+
+  const band = document.getElementById("band");
+  const verdict = document.getElementById("verdict");
+  const report = document.getElementById("report");
+
+  band.className = "band";
+  if (done < Q.length){
+    band.textContent = (Q.length - done) + " left to answer";
+    verdict.textContent = "Answer all twelve to see your verdict.";
+    report.hidden = true;
+    report.innerHTML = "";
+    return;
+  }
+
+  const title = BANDS[level][0];
+  const text  = BANDS[level][1];
+  band.classList.add("f" + level);
+  band.textContent = title;
+  verdict.textContent = text;
+
+  buildReport(score, level, title, text, flags, unsure, clear);
+  report.hidden = false;
+}
+
+let track = "a"; // report always shows full depth — the beginner version lives in the Learn view
+
+function item(i, lvl){
+  const q = Q[i];
+  const n = String(i+1).padStart(2,"0");
+  const tag = lvl === 2 ? "Flag raised" : "Unresolved";
+  let s = '<div class="item f' + lvl + '">' +
+    '<div class="item-h"><span class="item-n num">' + n + '</span><h3>' + q.t + '</h3></div>' +
+    '<span class="tag f' + lvl + '">' + tag + ' · ' + q.c + '</span>' +
+    '<div class="blk"><h4>Why this matters</h4><p>' + q.why + '</p></div>';
+
+  if (lvl === 2){
+    s += '<div class="gb">' +
+      '<div class="g"><span class="lbl">Good answer sounds like</span>' + q.good + '</div>' +
+      '<div class="b"><span class="lbl">Bad answer sounds like</span>' + q.bad + '</div>' +
+      '</div>' +
+      '<div class="doit"><strong>Do this</strong>' + q.act + '</div>';
+  } else {
+    s += '<div class="doit"><strong>How to find out</strong>' + q.unsure + '</div>';
+  }
+  return s + '</div>';
+}
+
+/* ---------- Learn view ---------- */
+document.getElementById("learnList").innerHTML = Q.map(function(q, i){
+  return '<div class="lsign">' +
+    '<div class="lsign-h"><span class="lsign-n num">' + String(i+1).padStart(2,"0") + '</span>' +
+    '<h3>' + q.t + '</h3></div>' +
+    '<span class="lcat">' + q.c + '</span>' +
+    '<div class="lblk"><h4>What it means</h4><p>' + q.bm + '</p></div>' +
+    '<div class="lblk"><h4 class="w">Why it matters</h4><p>' + q.bw + '</p></div>' +
+    '<div class="lblk"><h4>Do this</h4><p>' + q.ba + '</p></div>' +
+    '</div>';
+}).join('');
+
+/* ---------- View switching ---------- */
+const learnEl = document.getElementById("learn");
+const testEl  = document.getElementById("test");
+const vLearn  = document.getElementById("vLearn");
+const vTest   = document.getElementById("vTest");
+
+function setView(v){
+  const learning = (v === "learn");
+  learnEl.hidden = !learning;
+  testEl.hidden  = learning;
+  vLearn.setAttribute("aria-pressed", learning);
+  vTest.setAttribute("aria-pressed", !learning);
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+vLearn.addEventListener("click", function(){ setView("learn"); });
+vTest.addEventListener("click", function(){ setView("test"); });
+document.getElementById("goTest").addEventListener("click", function(){ setView("test"); });
+
+function buildReport(score, level, title, text, flags, unsure, clear){
+  const r = document.getElementById("report");
+
+  let html = '<div class="rep-hero">' +
+    '<div class="rep-label">Your result</div>' +
+    '<div class="rep-score num">' + score + '<span>/100</span></div>' +
+    '<div class="rep-band f' + level + '">' + title + '</div>' +
+    '<p class="rep-verdict">' + text + '</p>' +
+    '<div class="rep-tally">' +
+      '<div class="t2"><div class="n num">' + flags + '</div><div class="l">flags raised</div></div>' +
+      '<div class="t1"><div class="n num">' + unsure + '</div><div class="l">unresolved</div></div>' +
+      '<div class="t0"><div class="n num">' + clear + '</div><div class="l">clear</div></div>' +
+    '</div></div>';
+
+  html += '<div class="next f' + level + '"><div class="next-h">Do this next</div><div class="next-b"><ul>' +
+    NEXT[level].map(function(x){ return '<li>' + x + '</li>'; }).join('') + '</ul></div></div>';
+
+  const raised = [], unres = [], ok = [];
+  answers.forEach(function(a, i){
+    if (a === 2) raised.push(i);
+    else if (a === 1) unres.push(i);
+    else ok.push(i);
+  });
+
+  if (raised.length){
+    html += '<div class="rep-sec"><h2>The flags you raised</h2>' +
+      '<p class="sub">Each of these is a known warning sign. Here is what it means, what a good and bad answer sound like, and what to do about it.</p>' +
+      raised.map(function(i){ return item(i, 2); }).join('') + '</div>';
+  }
+
+  if (unres.length){
+    html += '<div class="rep-sec"><h2>What you don\'t know yet</h2>' +
+      '<p class="sub">Uncertainty is not neutral. Each of these is a question you can close — and should, before money moves.</p>' +
+      unres.map(function(i){ return item(i, 1); }).join('') + '</div>';
+  }
+
+  if (ok.length){
+    html += '<div class="rep-sec"><h2>Clear</h2>' +
+      '<p class="sub">No warning sign detected on these. Worth re-checking if anything changes.</p>' +
+      '<div class="cleared"><h4>' + ok.length + ' of 12 clear</h4><ul>' +
+      ok.map(function(i){ return '<li>' + Q[i].t + '</li>'; }).join('') +
+      '</ul></div></div>';
+  }
+
+  html += '<div class="actions">' +
+    '<button class="btn primary" id="copyBtn" type="button">Copy my result</button>' +
+    '<a class="btn ghost" href="https://onestopdesignshop.github.io/Ledger-co-site/red-flag-guide.html">Read the full Field Guide</a>' +
+    '<a class="btn ghost" href="https://onestopdesignshop.github.io/Ledger-co-site/">Explore Ledger &amp; Co.</a>' +
+    '</div>' +
+    '<p class="note">Free to use, free to share. Nothing you entered was saved or sent anywhere.</p>';
+
+  r.innerHTML = html;
+
+  r.dataset.share =
+    "I scored " + score + "/100 on the Red Flag Scorecard — " + title.toUpperCase() +
+    " (" + flags + " red " + (flags === 1 ? "flag" : "flags") + " out of 12).\n\n" +
+    "It is a free 12-question check for warning signs before you put money into anything: " +
+    "onestopdesignshop.github.io/Ledger-co-site/red-flag-scorecard.html";
+
+  document.getElementById("copyBtn").addEventListener("click", copyResult);
+}
+
+async function copyResult(e){
+  const share = document.getElementById("report").dataset.share || "";
+  const btn = e.currentTarget;
+  try {
+    await navigator.clipboard.writeText(share);
+    btn.textContent = "Copied";
+  } catch (err) {
+    const ta = document.createElement("textarea");
+    ta.value = share;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); btn.textContent = "Copied"; }
+    catch (e2) { btn.textContent = "Press and hold to copy"; }
+    document.body.removeChild(ta);
+  }
+  setTimeout(function(){ btn.textContent = "Copy my result"; }, 2200);
+}
+
+document.getElementById("reset").addEventListener("click", function(){
+  answers.fill(null);
+  document.querySelectorAll(".opt").forEach(function(b){ b.setAttribute("aria-pressed","false"); });
+  document.querySelectorAll(".q").forEach(function(q){ q.classList.remove("answered"); delete q.dataset.state; });
+  update();
+  window.scrollTo({top:0, behavior:"smooth"});
+});
+
+update();
+</script>
+</body>
+</html>
