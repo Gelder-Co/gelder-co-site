@@ -1,346 +1,73 @@
 # GELDER & Co.
 
-**Investment Research & Financial Education — Financial education membership with tiers, rate guides, and portfolio tools.**
+> "Finally, money advice worth paying for."
 
-## Overview
+The marketing site, member dashboard demo, and supporting docs for GELDER & Co. — a financial education membership business (rate comparisons, web3/digital-asset literacy, and income-strategy guides), sold via Monthly / Quarterly / Annual / Lifetime subscriptions, with a separate All-Access plan and the option to stack individual tiers.
 
-GELDER & Co. is a membership-based financial education platform offering investment research frameworks, capital systems training, and portfolio management tools.
+## Live demo status
 
-**Live Site:** `https://gelder-co.github.io/gelder-co-site`
+This repo currently contains a **fully designed front-end** with a **working demo** of sign-up, sign-in, and the member dashboard (content library, watermarking, savings tracker). The demo runs on `localStorage` as a stand-in for a real backend — **no real payments or accounts are processed yet.** See [`docs/backend-wiring-guide.md`](docs/backend-wiring-guide.md) for the exact steps to connect real billing and accounts (Lemon Squeezy + Supabase).
 
----
-
-## Features
-
-✅ **Three Membership Tiers**
-- Foundation ($49/month) — Getting Started
-- Operator ($149/month) — Active Investors
-- Institutional ($499/month) — Portfolio Managers
-
-✅ **Core Tools**
-- Red Flag Scorecard (fraud detection)
-- Stock Evaluation Framework
-- Yield Map (rate tracking)
-- Capital Systems Suite (Foundation/Operator/Institutional)
-
-✅ **Educational Content**
-- Investment fundamentals
-- Research methodologies
-- Portfolio management frameworks
-- Monthly strategy updates
-
-✅ **Design**
-- Luxury black-and-gold theme
-- Fully responsive (mobile-first)
-- Dark mode optimized
-- Fast-loading static site
-
----
-
-## Tech Stack
-
-- **Frontend:** HTML5, CSS3 (no frameworks)
-- **Hosting:** GitHub Pages
-- **Payments:** Paddle
-- **Backend:** Supabase (optional, for member data)
-- **Deployment:** Git
-
----
-
-## Project Structure
+## Repo structure
 
 ```
-gelder-co-site/
-├── index.html                          # Landing page
-├── home.html                           # Member dashboard
-├── entry-splash.html                   # Pricing & membership
-├── privacy-policy.html                 # Privacy policy
-├── terms-of-sale.html                  # Terms of service
-├── capital-systems-suite.html          # Capital systems (all tiers)
-├── red-flag-scorecard.html             # Fraud detection tool
-├── stock-evaluation-framework.html     # Evaluation framework
+.
+├── index.html                          → main site (pricing, guides, brokers, dashboard, etc.)
+├── terms-of-sale.html                  → full Terms of Sale (all plans, billing options, refund policy)
 ├── css/
-│   └── styles.css                      # Complete design system
+│   └── styles.css                      → all site styles
 ├── js/
-│   ├── main.js                         # Main scripts
-│   └── library-block.js                # Library utilities
-├── docs/
-│   ├── faq.html                        # FAQ
-│   ├── contact.html                    # Contact form
-│   ├── guides.html                     # Guides index
-│   ├── our-method.html                 # Our methodology
-│   ├── about.html                      # About page
-│   ├── todays-rates.html               # Rate tracking
-│   ├── top-brokers.html                # Broker guide
-│   ├── web3.html                       # Web3 resources
-│   ├── free-tool-guides.html           # Tool guides
-│   ├── backend-wiring-guide.md         # Backend docs
-│   └── guides/                         # PDF guides
-├── Tier1 Foundation Playbook.pdf       # Foundation tier book
-├── Tier1 Foundation Toolkit.xlsx       # Foundation toolkit
-├── Tier2 Operator Toolkit.xlsx         # Operator toolkit
-├── Tier3 Institutional Playbook.pdf    # Institutional book
-├── Tier3 Institutional Toolkit.xlsx    # Institutional toolkit
-├── README.md                           # This file
-├── LICENSE                             # MIT License
-└── .gitignore                          # Git ignore rules
+│   └── main.js                         → all site behavior (billing toggle, auth demo, dashboard, content viewer)
+└── docs/
+    ├── backend-wiring-guide.md         → step-by-step: Lemon Squeezy + Supabase real backend setup
+    ├── stock-evaluation-framework.md   → free lead-magnet PDF source content (Markdown)
+    └── guides/
+        ├── The Yield Map - June 2026.pdf       → first real member guide deliverable (Tier 1 content)
+        └── yield-map-guide-source.html         → editable HTML source — re-export to PDF monthly with fresh rates
 ```
 
----
+## What's real vs. demo right now
 
-## Getting Started
+|Feature                                                              |Status                                                                    |
+|---------------------------------------------------------------------|--------------------------------------------------------------------------|
+|Visual design, pricing tiers, copy                                   |Real, final                                                               |
+|Pricing logic (Monthly/Quarterly/Annual/Lifetime/All-Access/Stacking)|Real, final — matches Terms of Sale exactly                               |
+|Sign up / sign in modal                                              |Working UI, **not connected to real auth yet**                            |
+|Member dashboard + content library                                   |Working UI, **gated by demo `localStorage` state, not real subscriptions**|
+|Per-user watermark on guide content                                  |Real logic, works once real auth is connected                             |
+|Single-session-per-account enforcement                               |Designed, **needs the Supabase trigger in the wiring guide to be live**   |
+|Checkout buttons (`#checkout`)                                       |**Placeholder anchors — need real Lemon Squeezy checkout URLs**           |
+|Email capture popup                                                  |Working UI, **not connected to an email provider yet**                    |
 
-### For Deployment
+## Before going live — checklist
 
-1. **Clone or Create Repo**
-   ```bash
-   git clone https://github.com/onestopdesignshop/gelder-co-site.git
-   cd gelder-co-site
-   ```
+1. Create your products/variants in Lemon Squeezy (4 plans × 4 billing intervals = 16 checkout links).
+1. Replace every `href="#checkout"` and `START THE [PLAN]` button with the real Lemon Squeezy checkout URL for that variant.
+1. Follow `docs/backend-wiring-guide.md` to connect Supabase auth + the webhook that grants real access.
+1. Replace placeholder contact info (`hello@yourdomain.com`) throughout `index.html` and `terms-of-sale.html` with your real domain/email.
+1. Have a real lawyer review `terms-of-sale.html` before launch — it's a strong draft, not a substitute for legal review.
+1. Connect an email provider (ConvertKit, Mailchimp, or Lemon Squeezy's own list tool) for the free lead-magnet popup.
 
-2. **Add Files**
-   - Copy all HTML files to root
-   - Copy `styles.css` to `css/` folder
-   - Copy JavaScript files to `js/` folder
-   - Create `docs/` folder with doc pages
-   - Add tier PDFs and Excel files to root
+## Monthly content refresh workflow
 
-3. **Enable GitHub Pages**
-   - Go to Settings → Pages
-   - Source: Deploy from a branch
-   - Branch: `main`, Folder: `/` (root)
-   - Save
+The Yield Map guide is sold as "refreshed monthly" — to keep that promise:
 
-4. **Verify**
-   - Visit: `https://gelder-co.github.io/gelder-co-site`
-   - Check dark background, gold accents
-   - Test all links
+1. Re-verify current rates (search Bankrate, NerdWallet, Fortune/Curinos, The Motley Fool, WalletHub for current HYSA/CD rates).
+1. Edit `docs/guides/yield-map-guide-source.html` with the new numbers and an updated edition date.
+1. Re-export to PDF: `wkhtmltopdf --enable-local-file-access --margin-top 0 --margin-bottom 15mm --margin-left 0 --margin-right 0 yield-map-guide-source.html "The Yield Map - [Month Year].pdf"`
+1. Replace the old PDF in `docs/guides/` and in whatever delivery mechanism your dashboard/email system uses (see `js/main.js`'s `LIBRARY` array, which currently has placeholder body content for this item).
+1. Update the `[MEMBER NAME / EMAIL]` placeholder on the cover page dynamically per-member if you want personalized, watermarked copies — same principle as the in-dashboard watermark already built into the site.
 
-### For Local Development
+## Deploying with GitHub Pages
 
-```bash
-# No build step needed — this is a static site
-# Simply open index.html in your browser or use a local server:
+This is a static site — no build step required.
 
-python -m http.server 8000
-# Then visit: http://localhost:8000
-```
-
----
-
-## Design System
-
-### Color Palette
-
-- **Primary Gold:** `#D4AF37`
-- **Gold Light:** `#E8D4A8`
-- **Gold Dark:** `#AA8C2C`
-- **Black (Primary):** `#0A0E27`
-- **Black (Secondary):** `#1A1F3A`
-- **White Text:** `#F5F5F5`
-- **Accent Gray:** `#B8B8B8`
-
-### Typography
-
-- **Headings:** System font stack, bold
-- **Body:** System font stack, 16px base
-- **Font Weight:** 400 (regular), 700 (bold)
-
-### Components
-
-- **Navigation:** Sticky, dark background, gold bottom border
-- **Hero:** Dark gradient, large gold headings
-- **Cards:** Dark background, gold left border, hover lift effect
-- **Buttons:** Gold background, black text; .btn-secondary for outline style
-- **Tables:** Gold header, dark body, 1px borders
-- **Forms:** Dark inputs, gold focus, rounded corners
-
-### Responsive Design
-
-- **Mobile First:** All styles optimized for mobile
-- **Breakpoint:** 768px (tablet and up)
-- **Max Width:** 1200px content area
-
----
-
-## Membership Pricing
-
-### Foundation Tier ($49/month)
-- Stock Evaluation Framework
-- Red Flag Scorecard
-- Rate Guides
-- Core Concepts
-- Foundation Toolkit
-
-### Operator Tier ($149/month)
-- Everything in Foundation
-- Capital Systems (Operator)
-- Deep Dive Tools
-- Yield Map Tracking
-- Operator Toolkit
-- Monthly Updates
-
-### Institutional Tier ($499/month)
-- Everything in Operator
-- Institutional Playbook
-- Advanced Research
-- Custom Support
-- Institutional Toolkit
-
----
-
-## Features & Pages
-
-### Public Pages
-- **index.html** — Landing page, features, tiers, values
-- **entry-splash.html** — Pricing page, membership comparison, signup CTA
-- **privacy-policy.html** — Privacy policy (11 sections, GDPR/CCPA compliant)
-- **terms-of-sale.html** — Terms of service (20 sections)
-
-### Member Pages
-- **home.html** — Member dashboard, quick links, tier access
-- **capital-systems-suite.html** — All three capital systems tiers
-- **red-flag-scorecard.html** — Interactive fraud detection tool
-- **stock-evaluation-framework.html** — Stock evaluation methodology
-
-### Documentation
-- **docs/faq.html** — Frequently asked questions
-- **docs/contact.html** — Contact form
-- **docs/guides.html** — Guide index
-- **docs/our-method.html** — Our research methodology
-- **docs/about.html** — About GELDER & Co.
-- **docs/todays-rates.html** — Real-time rate tracking
-- **docs/top-brokers.html** — Recommended brokers
-- **docs/web3.html** — Web3 resources
-
----
-
-## Branding Guidelines
-
-### Logo & Name
-- **Name:** GELDER & Co.
-- **Tagline:** "Leadership. Education. Discipline. Growth. Excellence. Research. — Building Confidence and Creating Opportunity for every investor."
-- **L.E.D.G.E.R. Acronym:** Core brand values
-
-### Email
-- Support: dee8shops@gmail.com
-
-### Voice & Tone
-- Professional, educational, confident
-- Clear, jargon-minimized (explain when needed)
-- Action-oriented, goal-focused
-
----
-
-## Maintenance & Updates
-
-### Monthly Tasks
-- Update Yield Map rates
-- Refresh rate guides
-- Review & update market commentary
-
-### Quarterly Tasks
-- Review tier content accuracy
-- Update strategy updates
-- Check all external links
-
-### Annual Tasks
-- Audit all content for relevance
-- Review privacy policy & terms
-- Update tier materials
-
----
-
-## Payment Integration
-
-### Paddle
-- Seller ID: 366385
-- Supports: Credit cards, PayPal, Apple Pay, Google Pay
-- 30-day satisfaction guarantee
-- Monthly auto-renewal
-- Cancel anytime
-
-### Next Steps
-- Link checkout buttons to Paddle payment links
-- Configure success/failure redirects
-- Set up webhook for payment confirmations
-- Test in sandbox mode
-
----
-
-## Analytics & Tracking
-
-- **Google Analytics:** (optional, configure as needed)
-- **Conversion Tracking:** Membership signups
-- **Engagement Metrics:** Page views, time on site, tool usage
-
----
-
-## Known Limitations
-
-- Static site (no server-side processing)
-- Member authentication requires external service
-- Rate data updated manually (consider API integration)
-- No user-generated content (comment systems, forums)
-
----
-
-## Future Enhancements
-
-- [ ] Member login system
-- [ ] Automated rate API integration
-- [ ] Discussion forum or community
-- [ ] Mobile app (iOS/Android)
-- [ ] Advanced search functionality
-- [ ] PDF download of guides
-- [ ] Email newsletter automation
-
----
-
-## Support & Contact
-
-**Email:** dee8shops@gmail.com
-
-For issues, feature requests, or support, contact the support email above.
-
----
+1. Push this repo to GitHub.
+1. In the repo, go to **Settings → Pages**.
+1. Under "Build and deployment," set **Source** to "Deploy from a branch," branch `main`, folder `/ (root)`.
+1. Your site will be live at `https://<your-username>.github.io/<repo-name>/`.
+1. If using a custom domain, add a `CNAME` file at the repo root with your domain, and configure DNS per [GitHub's custom domain docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site).
 
 ## License
 
-MIT License — See LICENSE file for details.
-
----
-
-## Changelog
-
-### Version 1.0 — August 10, 2026
-- Initial launch
-- 3 membership tiers (Foundation, Operator, Institutional)
-- 5 core pages (landing, home, entry, privacy, terms)
-- Capital Systems Suite
-- Free tools (Red Flag Scorecard, Stock Evaluation, Yield Map)
-- Complete design system (black-and-gold luxury theme)
-- 8+ documentation pages
-- Mobile responsive design
-
----
-
-## Credits
-
-**Created by:** GELDER & Co.  
-**Design:** Luxury black-and-gold investment research platform  
-**Platform:** GitHub Pages + Static HTML/CSS  
-**Updated:** August 10, 2026
-
----
-
-**Live Site:** [https://gelder-co.github.io/gelder-co-site](https://gelder-co.github.io/gelder-co-site)
-
----
-
-## Quick Links
-
-- [Terms of Service](terms-of-sale.html)
-- [Privacy Policy](privacy-policy.html)
-- [FAQ](docs/faq.html)
-- [Contact](docs/contact.html)
+See [`LICENSE`](LICENSE). All site copy, design, and original written content © GELDER & Co. Third-party trademarks (Fidelity®, Charles Schwab®, E*TRADE®, etc.) referenced on the site belong to their respective owners and are used solely for identification — see the disclosure in `index.html`'s footer and `terms-of-sale.html` for full detail.
