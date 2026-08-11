@@ -1,16 +1,15 @@
-
-<!-- ============ LEDGER & CO. — FADE-AWAY SPLASH (shows once, auto-fades after 4s) ============ -->
+<!-- ============ GELDER & CO. — FADE-AWAY SPLASH (shows once, auto-fades after 4s) ============ -->
 <div class="ledger-splash" id="ledgerSplash">
   <div class="ls-tag">Our Foundation</div>
-  <div class="ls-title">The meaning behind <em>Ledger &amp; Co.</em></div>
+  <div class="ls-title">The meaning behind <em>GELDER &amp; Co.</em></div>
   <p class="ls-intro">Six principles that turn hard financial lessons into lasting confidence and wealth.</p>
 
   <div class="ls-rows">
-    <div class="ls-wr"><div class="ls-w"><span class="ls-ini">L</span>eadership</div><div class="ls-d">Integrity &amp; long-term perspective.</div></div>
-    <div class="ls-wr"><div class="ls-w"><span class="ls-ini">E</span>ducation</div><div class="ls-d">Practical financial education.</div></div>
-    <div class="ls-wr"><div class="ls-w"><span class="ls-ini">D</span>iscipline</div><div class="ls-d">Evidence over speculation.</div></div>
     <div class="ls-wr"><div class="ls-w"><span class="ls-ini">G</span>rowth</div><div class="ls-d">Sustainable, sound strategy.</div></div>
     <div class="ls-wr"><div class="ls-w"><span class="ls-ini">E</span>xcellence</div><div class="ls-d">Highest standard of quality.</div></div>
+    <div class="ls-wr"><div class="ls-w"><span class="ls-ini">L</span>eadership</div><div class="ls-d">Integrity &amp; long-term perspective.</div></div>
+    <div class="ls-wr"><div class="ls-w"><span class="ls-ini">D</span>iscipline</div><div class="ls-d">Evidence over speculation.</div></div>
+    <div class="ls-wr"><div class="ls-w"><span class="ls-ini">E</span>ducation</div><div class="ls-d">Practical financial education.</div></div>
     <div class="ls-wr"><div class="ls-w"><span class="ls-ini">R</span>esearch</div><div class="ls-d">Facts-first analysis.</div></div>
   </div>
 
