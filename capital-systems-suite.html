@@ -1,40 +1,282 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex">
-<title>Stock Evaluation Framework | GELDER &amp; Co.</title>
-<style>
-  body{margin:0;background:#0B1626;font-family:Arial,Helvetica,sans-serif;color:#fff;
-       display:flex;align-items:center;justify-content:center;min-height:100vh;text-align:center;}
-  .box{max-width:420px;padding:40px 28px;}
-  h1{color:#C9A227;font-size:20px;letter-spacing:2px;margin:0 0 6px;}
-  p{color:#c7cfdd;font-size:14px;line-height:1.6;}
-  a.btn{display:inline-block;margin-top:18px;background:#C9A227;color:#0B1626;font-weight:bold;
-        font-size:15px;padding:14px 28px;border-radius:6px;text-decoration:none;}
-  .note{font-size:11.5px;color:#7e8aa0;margin-top:22px;}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Capital Systems Suite | GELDER & Co.</title>
+  <meta name="description" content="The most comprehensive, sourced system for understanding capital structures, equity mechanics, and deal math. 64 modules. 1,152 formulas. All verified.">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-<div class="box">
-  <h1>G.E.L.D.E.R. &amp; C.O.</h1>
-  <p><strong style="color:#fff;">The Stock Evaluation Framework</strong><br>
-  Twenty questions, five sections — the discipline we run before any company earns a mention.</p>
-  <a class="btn" id="dl" href="#">Open the Framework (PDF) →</a>
-  <p class="note">If the button doesn't respond, refresh this page once. The PDF opens in your browser and can be saved from there.</p>
-</div>
-<script>
-(function(){
-  var B64 = "JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIgL0Y0IDUgMCBSCj4+CmVuZG9iagoyIDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMSAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjMgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EtQm9sZCAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjIgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago0IDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLU9ibGlxdWUgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YzIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKNSAwIG9iago8PAovQmFzZUZvbnQgL1phcGZEaW5nYmF0cyAvTmFtZSAvRjQgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago2IDAgb2JqCjw8Ci9Db250ZW50cyAxMyAwIFIgL01lZGlhQm94IFsgMCAwIDYxMiA3OTIgXSAvUGFyZW50IDEyIDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago3IDAgb2JqCjw8Ci9Db250ZW50cyAxNCAwIFIgL01lZGlhQm94IFsgMCAwIDYxMiA3OTIgXSAvUGFyZW50IDEyIDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago4IDAgb2JqCjw8Ci9Db250ZW50cyAxNSAwIFIgL01lZGlhQm94IFsgMCAwIDYxMiA3OTIgXSAvUGFyZW50IDEyIDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago5IDAgb2JqCjw8Ci9Db250ZW50cyAxNiAwIFIgL01lZGlhQm94IFsgMCAwIDYxMiA3OTIgXSAvUGFyZW50IDEyIDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iagoxMCAwIG9iago8PAovUGFnZU1vZGUgL1VzZU5vbmUgL1BhZ2VzIDEyIDAgUiAvVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKMTEgMCBvYmoKPDwKL0F1dGhvciAoR0VMREVSICYgQ28uKSAvQ3JlYXRpb25EYXRlIChEOjIwMjYwNzE2MDI1NjA3KzAwJzAwJykgL0NyZWF0b3IgKFwodW5zcGVjaWZpZWRcKSkgL0tleXdvcmRzICgpIC9Nb2REYXRlIChEOjIwMjYwNzE2MDI1NjA3KzAwJzAwJykgL1Byb2R1Y2VyIChSZXBvcnRMYWIgUERGIExpYnJhcnkgLSBcKG9wZW5zb3VyY2VcKSkgCiAgL1N1YmplY3QgKFwodW5zcGVjaWZpZWRcKSkgL1RpdGxlIChTdG9jayBFdmFsdWF0aW9uIEZyYW1ld29yaykgL1RyYXBwZWQgL0ZhbHNlCj4+CmVuZG9iagoxMiAwIG9iago8PAovQ291bnQgNCAvS2lkcyBbIDYgMCBSIDcgMCBSIDggMCBSIDkgMCBSIF0gL1R5cGUgL1BhZ2VzCj4+CmVuZG9iagoxMyAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCAyNDYwCj4+CnN0cmVhbQpHYiFrdT5CQVEtJnE5U1lmVl1DWllvMydhWzE/blQ9Ji5OckclN1RHRk4sc0oiXEZNQTY2U1dGcVkwcSgrPVlRaGpYLyNoMT1KdWZqb3JQMDBBajdOP3NOIVdUNTRHJzNSUS9fSD9uZT1sZDlySERWdFhTSVM2SStfOGNZVSs4RHVcUExDVUE/NiMtZyMvZS9Gam50ZGVnLE9tLzVHQURrSz48PEYuTCIoRzMsbWxuXyIwOUBuakA9ND9rSGFOPz1lPE5CXXQrXS8lPTc/IilhbDYoZjI0SiVbPik3cFFjZDtpVipfL1lGPj5dci50PyloWy9eJ2FFXlBAJWxGOTpqWiQscCsqbyIlJVpSPlwqNFRsK0ZhTL83Z1YmQjdEXUpQI0IvIyIoUypkRSEoRk8tN29aLUxWaGlHZmooWyNtZEgyTVElSTwjJ3BIZDtyYF1tT3RcNkknPyM9MVJqJW84cUFNSk1SU2tJUS9VLjc8bD5eJlxGSko0LTxZUklvdTElJ1NfOCZoQ1M+cElRWURwNiI9dGQtZjxhYmVWJiVbLyYoKFdocj1eQFMmS0olOSkvJEgzSFg6TTByW0s9PXRRWUhQNFBET1cyMjs6SDtSSFhXRiI8MzgjXFBMVV9cLlFCTmg8alFFIUoyOGxfUVJUY2tYYkBoZEsuOSUtSEw4V2NXKC1kdC9GTUNmP1ZDWlU+MzQ3S3FDRFNJSz02MTM9anBBZWVlNGJAPkQwZyhgYHBZU0tZZChdUFQjVTgpYiVSK2ZFISxDSFZaLiIkWmYtQGpuZUVRciNVRlFQYidqWm1hcSEmPWU0P0MwY2A5bUFtRkU2cD4ybms8NDAvNzBvTG1tY0omRlt0Y3BxTHE1NWhoKmM/Oytsb2JxN3N1KnM1VVImYFU0dE9SXG8vLWRdZDBSMDVhKDQmQiMrXFdXbiYrWW1wMm9aQChWLUcyJndGLWEjTl1LN1RgZjVKcW1rOUBSMCNuIkMrUFJRJzIkI28hSEdaV1Y+RzAyYDYzKVRWLT8hWVA9bkJSak0kNWJgUTVScEo2aUoqQ0MtJk1XOXBVK2ZoKW9LRjNHMDJaMmQ0YVYqSz1aSks1VjVVIVkqLEU+Zmo/YlI9TTVVQCQhWVE+QEY/TVRKNWNDWjFWVnBYUlcxdFEzcFhWbEZ5VW1WU2JFNXVWVEIzVEVGNlQwRkJWRXBUVW0xVVJrVkJNa1pXVlhCclEwRkJNbFJGUlVKVVUybFdUMFpVVjA1V1VteENVRmRJVjJGU1EwRkJNMHBVVjA0eFQxTlhWbk5aV0ZKVllsZE9hRTVFVVhkT1ZGbDVWMGRPYVUxR2IzRlVWRll6VVcxMGFWRlhiRkJVVkd0R1MyFkkuVW0xTmEyTm5UMGhDWVUxRVJqQk9WRUZyVFVSUk1reFhVWGRsVkZacFlVZFdkMU51Vld0TGJtTm9WMjEzTVV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyFkkuVW1wRmVrOUVSVEJNVkZGNlQwUlJNRTVFVVhkaFJFRjRUVVJCZWsxSFVYZGxSRlpaWVVaS2QyRnFRbXRrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyFkkuVm0weFEwMUdSakJQVkZkNlQwUlJlazFIVVhkbFJGRlpZVVpLZDJSRlNrMUxVMDQzVVRKV2FFMVVSVFJNVlZaNlQwZEJlRkJITUd0bVZGSlZkbFJzWVhoTVYyUnZVbXRzVVU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyFkkuVW0weFQwRkdSakJQVkZaS1QwUlJlRlJ4VVhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2wxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2wxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2wxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2wxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2wxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2wxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2wxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2wxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2wxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2wxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2wxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2wxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2wxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmFWRkV4VFVSUmVrMVhVWGRsVkZWWFlVZFdkMVJHVld0TGJtTm9WbGR3TUV4RlozRkpiRUp5V1cxMFlVMUdSakJhVkZWNFQxRXhSbGRUTVhCbVUwVm5kbGRzV1hoTWIyUnhWbXQwVlU1R2EzRlVWRll4VW0wd2JVMUhiRkJVVkd0R1MyRklVa2xxVjBkU1EwMUdSakJOVkZkNlQwUlJlRmRVTUhkbFJFRjVUa1JCZWsxRVJYZGxWRmxYWVVkS2QyRkVWbTFrVjA1b1YyMTNNRXhGWjNGSmJFSklWbGhTWVUxRVdqQmE+ZW5kc3RyZWFtCmVuZG9iCjE0IDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDI0NzAKPj4Kc3RyZWFtCkdiIWt1bXJSNUEnKWg3NUBSIi9STl9ULDM3LVtea1tATm5tXE43LktBaG9RJyYuK0pYLjZvJUEvJVdMcGhMWkZmMm1JZXVIKHBeUTE1W0JBUS1UMUltQ2lgK28nbkFQcyg7XzYrL2E1TzNoUlVrbCghQFhNZVckQi91QWxHJVFsdDlKZ19lZzpXSG0hK3RuYSJJUm0xUVRKLzlcJy8oOVEoXiZnTklvcEghUlhdaEYtIyI4ZUdeKDNmX0ZdXFByJFVFIkRQYEZBaFQuOGAkcW9QS2NzJkFiLjJiVnNOKjROZCl0TjFvVDYjQy9sRyRdZDZoQ246Y0xDNFldXktQMU9mJSUtNFBuX08tPU1fPDgnWSFjTTFab2clcjJFN0ZERltkPldAYWswOmZvJW1JRTNiWDBcR19pcUxuXF5SXCtRWUM8MXNmO0pZX0deIjwvb0JyJVhwajt0ZzYlRjVdXTxQUExCXz1UKVxpSzkuMzpUS1BucCQkJ0ohMlVCUktuMUwyXHRySVU6WylHLi4rZF1VIV9MZztRTF0vNTAqRjUibyFDZT5GUCw9WUppTC9HbHAlTTEsITBqUiVBI1E1KHFzTFskJkdvQU0tXFctcl1FLT0mY1ZFQjNxRTFcdTFURkk7Q0FgXUI6ajwyQSxPSTklOSk+QVlsXSJVTCl0NV1NW0QyXU1fKC0oJS4iWFkwLGcjIkYkdSo3VUQwR2lSWUhIVTYkKVc0VC1kXFxgOlVmKls9UzkhYHNlb0ZtRlA4NC4oXihTcUAoPkFYYl4uMyo8WjkjQWFjWDJbSGo1KmVuIT9jYGdeKFUoZSkqXWsoTy46Sy9nX24qb09waDRCJiI5S0s5KCckVWNkbkJ1aGtHPmJpMzZ0VFkjLEhzVjM9LVk4SCEiNSZqQVoucV8lbmRAPWxePkY8Y2k7MnIuTCNsKjc/KyZzKC5naUB1OzMlbjo2Zks8YHBLLVBzUTU2cjo4QUwmTmYtKmpA!R1QXZWmhWBb0iVHYxF1IdE5scEFSoAFOqCUVFVGx6cXNPPWZgQ0AyJS8jQy1Scm4nJmJYWm1zM0gpKnRhTjlfUiBRQkZPeTJOd0YqPWg4az8wS0UrQ1pmQzFyIzY8KSo4IWIiWU9RVm9ZbkgoJFVtcTVaY0QnIXJBKGIhbUVBRlBAbzxcSjY2VTk6bCxLczVQQl1fV1FEam9Ka0pfYiEnXzRQQl06XE5uYCMmcFlwUG8lW0FqLk8kZD0lbmE8ViVsaSlVYWElJGZjVykjbEhrN1hIOEdCcjkkNVBQSVlOUkdwVWkpR3EpJiNbOy1qXSkuWDh0QmEzKjY5bks9OiwzOHlHLy5zPT0rXkpVUjJOV1ExeDFSMDVVSzBKUk1FMVdTRFJYVkc5WGFrVkJNbFpIVjJGRlEwRlJNMnBVVjI1WFlVbEhSalZhVkUxNlRWTlZNRnBITW5kWVVqRTBUMFJCTTAxRVkzZExSMnRUV1RKT2MwNVVUbEJQVVQwOUluQjBjbmx1Ym1GdFoyRmhZMmhoYm1kbFlXMHhYMjFoYkhObElqcDBjblZsTGpBeElpSjJPQ0k2TXlKOSZjMzp+Pj5lbmRzdHJlYW0KZW5kb2JqCjE1IDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDIzNjYKPj4Kc3RyZWFtCkdiIWt1PkJBT2UnUm5CMzMpO0BiTTlzZVlUOiIhJlYsLkZDL2RzUEtYSk0ycTcrdFlLO04xTT1xOURUdSpTTWQnYWpgK1cnJCVUTWpkYFs3R0FbYC5hJXRYbUFlaV8mRjhHYEU1WEBzNEpxRFg1QyZXazRrPT4hJDQ/bmpYLW1kMzM6O1NoMjA4TzVVXFpXMDFjUT1jPnJNKCU8Y2A7Yi9cdEVFYFYsPGQ1MmI7Qysmb1BLOEExJ2NrJTRPM1s5QEpeOkNVcUBYbUUwQ1g3SVdzZUw0ViJwVz5zLCxGdS1AUmNaNmdVQCc4XEhxakpvaWQ5KkRrSlk0bzkzWTM6YWNJJTNPOS0tXlJBTGxzKy9JRjRhWmVvRCNYOmotW0wuYHA+YnNlKFJJQVFtczBdJlFgbEROU0wkY201PFRVSztgZ2x1bydqQSJbYTpNL1xYJmc+ITwkKElBMkhQOD1TcD84Vl83M0ZWLkNIIiw+cHVyTGlgSWxHam1cOFgqWTNuaVk0UUJwcE5ePm8wMlJDVm9aQFBgQilpc3QoLVJmb2JELzhFQT4uKWsnQVNRLl9nL1lXT1BraG00SUA/UiZYJzQyOzVMNnI4WyohJlo7SigjJEZjLy0iJUdqRGpELUFFUigtNUI9MENnJ0lhWlUlIjksL2FaMFRFcj9DZDNpU1VoRl09MCooLismc0lQQTk0XGowcVgzVENzMWloNCRWKjthLFAlJiZUNW0udUdOL2RrS3M7UiJdLz5YWjA9Vz1cXjFibi4kOktNVz9Kcy8sNHRrZ1JkMG9oLXFkPm9YXDUrY2k0MU88LDBXVT1RZjRbZ1NUay5gYm0+PmpCPWVjYGYtWGsrdGBqRGNbPic/VlBZZVNDWEdVVWNYaUI0M0ltUlpEdUNjNWdoP0MnVVAqNUJDVTxdMWQ1SitKMU8mWmJOPmopZSxnPzltcC1SSic1V2JYMU0xMz85YiFUWCFdJ1MkXEtHVjZbL2VOQ1InQFhdOzVsQjdacGQ5QSUrKUFTWGxRMCd1N0AkO2tBTk1nKSExJGYhMiUucHJ1WjBFa0hDIiVXMGNaZ09pSUNoc1ZYQEJcb2NPZGkoaUw3UnVINmJmbl9TW09AJ0dSJ21rV1Vzby88TFdVOit0MywzKzxJYEwzU3FgYWhBcEFaXmQiX15UW1dqUkhkWz4nY18nc0NQW25gJzUnbXQ0Ykg2YzJDUSZlMygvWERJIzVaV1QyS2lQPCxLKk10UVJVZS5FZWkyWnVsVi11WDopQS8rYSc3T0NPSDtWVzAlJTklIWIkU3UxL1RwP3QyYGVbO2hpIydwVktOWl1ZJDsyRCQ8aj8vZTVVZUkyRDQ3b15XYDlcZ1UyK1lyTkonMyouQmYtXm03UVZZTSFCTnRcZ3AvUURaZT1rMjMlTUEqWCkwbDwmXGI/bHE3OG8oZjFpJyh0SGwzMTpvLm5PdUIxYSJwOnUkUklkLktSUyYkVjVVbzNwS2g9IXRjOjxtO2hyKyEqO0RdWDdWSkEmTVFBV1tdQTUrQTQ8Uj8mJ0JIYWM3JyYkSjk4YVJpV1xyaEchN045OGpFLD5fWS9bLDhtPzw/MGRgaW1kWiQ2YXNnay4jXCVKbUZlSWFlVlJVUi1RQDJVPi87P1Q9InFkZj1kTUlcSExNJlVSKkBUWzNeTkM7QlZNKCZOTUBxV15uQExFcmE/by9iKT8/VV0pKyskSXJjazFjUVIuaUgwUydKTFpcUyIwc0hWL0Y8M0NxLUJXLkUuRldVLTFtQSxeK05LV1cxNHREL0IlZmgkPD1zdGlXMFtmPGpbKixBNGVIalprP21fb19kZVNdQ1ImUVBdZFY/ImZVMVklO2VAO0hVKCZra21jNWRJOGxARjsrKilnWylyMFM7alg1VlJKI2NkOT1AaTM4V1spZUdSZFZOW0QzRSxDaF9KZTdrMUJvKlYyZj03SEBSITFyLEMjKjNtQVliRzl0amQ7NjcmZE9kPV0pOTBhRmRqJFlcXz0kWHVtJlpXSSVmTCNjO3NyTUJwUkc2M2lQN3NvWkMuXW49Kl5eZz1mLG9zImVURSJcMlNeakZyO00nTDJIK2hMKz5qXytDSDpiSV9VLW5kQEErPUVxJ0UzKTFrSWY/Wjc+OzhrX1RXQywmWkxHR0JnOzoqVkQxLGJEbUZIcG1eTiNkdSlvY2JkQVpcYE1lRTBccm8sI3AoXW0qbEdsQSVpKVRfb1AjQCFyY2Zicm9TR29KYFFGWDtOYiVhcENzMzMmWXo6I2k5aW5xKFU3a0kiP2RRUCt4K2snPT8iUFgsTCI+bCtyKzJfWy8rN2lUcklqNit1Ri8lcVsnVzktb2VIXEdUIkFaVHVAWTtiLDloVCFlPyJUYmZiLSc2QDhIbkdAUCZqVT8vdDRtPi50P0wua14xW3M1Jio0UnMuUEpUKFcrO1w1QiVkNzRVcjhMLXFjZGkkWzUjOWhjP0pKPXVJQWZcRyhcMmtiLThwPkBDLTg6bWBIYjNQbT8uTz5aQFpqZGBqNUU0Xz08VSVlKipBcldnVSREQzhIZWVtcF5kbVIwaj88Km1ISVgeaUdGdVUsampGVktzKlkuOWMhP3F0Uz8ibyElTjpaUDJRbFB0LW8/KSJSZDJGUEkqKFZFXlpDdGh0XEpkJDMqYHJEOFc2I10rKjRBXkRoJm4wWGs8YmAyV0pKVlA2TiZncGFhNzk3JU5cL0hYLnJpdGMialknRmQ9QSo5blwkK3BSOTZ1M2Y4WUJLanIvLT84Jj5abGYyL0lnTlsvOEs6UzQpWVBiWQo%3D";
-  var bin = atob(B64), len = bin.length, bytes = new Uint8Array(len);
-  for(var i=0;i<len;i++){ bytes[i] = bin.charCodeAt(i); }
-  var blob = new Blob([bytes], {type:'application/pdf'});
-  var url = URL.createObjectURL(blob);
-  var a = document.getElementById('dl');
-  a.href = url;
-  a.setAttribute('download','stock-evaluation-framework.pdf');
-})();
-</script>
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="logo"><a href="/index.html" style="text-decoration: none; color: inherit;">GELDER & CO.</a></div>
+    <ul>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/index.html#about">About</a></li>
+      <li><a href="/index.html#tools">Free Tools</a></li>
+      <li><a href="#tiers">Tiers</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="/faq.html">FAQ</a></li>
+      <li><a href="#" class="btn">GET ACCESS</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="hero">
+    <h1>Capital Systems Suite</h1>
+    <p class="tagline">The complete reference for every capital mechanic.</p>
+    <p>64 modules. 1,152 formulas. Everything sourced, verified, and audit-ready. Understand how money moves through companies—equity, debt, preferred structures, liquidation preferences, waterfall mechanics.</p>
+  </section>
+
+  <!-- QUICK STATS -->
+  <section style="background-color: #1A1F3A; padding: 3rem 2rem; text-align: center;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+      <div>
+        <p style="font-size: 2.5rem; color: #C9A227; margin: 0;">64</p>
+        <p style="color: #B8B8B8; margin: 0.5rem 0 0;">Complete Modules</p>
+        <p style="font-size: 0.9rem; color: #888;">From startup basics to SPVs</p>
+      </div>
+      <div>
+        <p style="font-size: 2.5rem; color: #C9A227; margin: 0;">1,152</p>
+        <p style="color: #B8B8B8; margin: 0.5rem 0 0;">Verified Formulas</p>
+        <p style="font-size: 0.9rem; color: #888;">Cross-checked across deals</p>
+      </div>
+      <div>
+        <p style="font-size: 2.5rem; color: #C9A227; margin: 0;">100%</p>
+        <p style="color: #B8B8B8; margin: 0.5rem 0 0;">Audit-Ready</p>
+        <p style="font-size: 0.9rem; color: #888;">No assumptions, all cited</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section style="max-width: 1200px; margin: 4rem auto; padding: 0 2rem;">
+    <h2 style="text-align: center; margin-bottom: 3rem;">What You Get</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>Equity Mechanics</h3>
+        <p>Common stock, preferred classes (A, B, C+), option pools, fully-diluted cap tables, liquidation preferences, waterfall math at every deal stage.</p>
+      </div>
+      <div class="card">
+        <h3>Debt & Instruments</h3>
+        <p>Convertible notes, SAFEs, warrants, senior debt, subordinated debt, PIK structures. Conversion math, interest accrual, yield calculations.</p>
+      </div>
+      <div class="card">
+        <h3>Deal Math</h3>
+        <p>Valuation across rounds, dilution tracking, post-money implications, per-share economics, burn rates, runway calculations.</p>
+      </div>
+      <div class="card">
+        <h3>Exit Scenarios</h3>
+        <p>M&A waterfall payouts, IPO allocation, secondary distribution, tax-lot tracking, preference stack resolution.</p>
+      </div>
+      <div class="card">
+        <h3>Governance Mechanics</h3>
+        <p>Board composition, voting rights, protective provisions, anti-dilution formulas, drag-along / tag-along mechanics.</p>
+      </div>
+      <div class="card">
+        <h3>Reference Tools</h3>
+        <p>Glossary of terms, formula index by deal type, audit checklists, common model structures, edge-case resolutions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIERS SECTION -->
+  <section id="tiers" style="background-color: #0A0E1A; padding: 4rem 2rem;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 style="text-align: center; margin-bottom: 3rem;">Choose Your Tier</h2>
+      
+      <div class="card-grid">
+        <!-- FOUNDATION TIER -->
+        <div class="card" style="border: 2px solid #C9A227;">
+          <h3 style="color: #C9A227;">Foundation</h3>
+          <p style="font-size: 1.2rem; color: #C9A227; margin: 1rem 0;">$79<span style="font-size: 0.8rem; color: #B8B8B8;">/month</span></p>
+          <p style="color: #888; font-size: 0.9rem;">For founders & operators</p>
+          <ul style="list-style: none; padding: 0; margin: 2rem 0;">
+            <li style="padding: 0.5rem 0; color: #B8B8B8;">✓ 20 core modules</li>
+            <li style="padding: 0.5rem 0; color: #B8B8B8;">✓ Cap table fundamentals</li>
+            <li style="padding: 0.5rem 0; color: #B8B8B8;">✓ Waterfall scenarios (basic)</li>
+            <li style="padding: 0.5rem 0; color: #B8B8B8;">✓ Glossary & reference</li>
+            <li style="padding: 0.5rem 0; color: #888;">✗ Advanced deal math</li>
+            <li style="padding: 0.5rem 0; color: #888;">✗ Governance deep-dive</li>
+          </ul>
+          <a href="#" class="btn" style="width: 100%; text-align: center;">Start with Foundation</a>
+        </div>
+
+        <!-- OPERATOR TIER -->
+        <div class="card" style="border: 2px solid #C9A227; transform: scale(1.05);">
+          <p style="text-align: center; background-color: #C9A227; color: #0A0E1A; padding: 0.5rem; border-radius: 4px; font-weight: bold; margin: -1rem -1rem 1rem;">Most Popular</p>
+          <h3 style="color: #C9A227;">Operator</h3>
+          <p style="font-size: 1.2rem; color: #C9A227; margin: 1rem 0;">$199<span style="font-size: 0.8rem; color: #B8B8B8;">/month</span></p>
+          <p style="color: #888; font-size: 0.9rem;">For investors & advisors</p>
+          <ul style="list-style: none; padding: 0; margin: 2rem 0;">
+            <li style="padding: 0.5rem 0; color: #B8B8B8;">✓ All 64 modules</li>
+            <li style="padding: 0.5rem 0; color: #B8B8B8;">✓ Complete cap table suite</li>
+            <li style="padding: 0.5rem 0; color: #B8B8B8;">✓ Full waterfall engine</li>
+            <li style="padding: 0.5rem 0; color: #B8B8B8;">✓ Deal math & valuation</li>
+            <li style="padding: 0.5rem 0; color: #B8B8B8;">✓ Governance mechanics</li>
+            <li style="padding: 0.5rem 0; color: #888;">✗ Institutional pricing</li>
+          </ul>
+          <a href="#" class="btn" style="width: 100%; text-align: center; background-color: #C9A227; color: #0A0E1A;">Get Full Access</a>
+        </div>
+
+        <!-- INSTITUTIONAL TIER -->
+        <div class="card" style="border: 2px solid #C9A227;">
+          <h3 style="color: #C9A227;">Institutional</h3>
+          <p style="font-size: 1.2rem; color: #C9A227; margin: 1rem 0;">Custom</p>
+          <p style="color: #888; font-size: 0.9rem;">For firms & teams</p>
+          <ul style="list-style: none; padding: 0; margin: 2rem 0;">
+            <li style="padding: 0.5rem 0; color: #B8B8B8;">✓ All Operator features</li>
+            <li style="padding: 0.5rem 0; color: #B8B8B8;">✓ Team seats (5-10+)</li>
+            <li style="padding: 0.5rem 0; color: #B8B8B8;">✓ API access</li>
+            <li style="padding: 0.5rem 0; color: #B8B8B8;">✓ Custom integrations</li>
+            <li style="padding: 0.5rem 0; color: #B8B8B8;">✓ Priority support</li>
+            <li style="padding: 0.5rem 0; color: #B8B8B8;">✓ SLA guarantee</li>
+          </ul>
+          <a href="#" class="btn btn-secondary" style="width: 100%; text-align: center;">Contact Sales</a>
+        </div>
+      </div>
+
+      <p style="text-align: center; color: #888; margin-top: 2rem; font-size: 0.9rem;">All tiers include unlimited updates. Locked pricing for annual subscribers.</p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" style="max-width: 1200px; margin: 4rem auto; padding: 0 2rem;">
+    <h2 style="text-align: center; margin-bottom: 3rem;">How It Works</h2>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+      <div>
+        <h3 style="color: #C9A227;">1. Pick Your Module</h3>
+        <p>Start with a specific deal type or structure: Series B preferred round, convertible note conversion, acquisition waterfall, equity compensation plan setup.</p>
+      </div>
+      <div>
+        <h3 style="color: #C9A227;">2. Plug in Your Numbers</h3>
+        <p>Input your company's actual cap table, deal terms, valuation. The system calculates everything downstream—dilution, post-money, per-share economics, waterfall payouts.</p>
+      </div>
+      <div>
+        <h3 style="color: #C9A227;">3. Verify Every Result</h3>
+        <p>Every calculation shows its source. You can see which formula was used, where it came from, and how it applies to your specific situation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXAMPLE MODULES -->
+  <section style="background-color: #1A1F3A; padding: 4rem 2rem;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 style="text-align: center; margin-bottom: 3rem;">Sample Modules Inside</h2>
+      <p style="text-align: center; color: #B8B8B8; margin-bottom: 2rem;">A taste of what's included in the full suite</p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+        <div style="background-color: #0A0E1A; padding: 1.5rem; border-left: 3px solid #C9A227; border-radius: 4px;">
+          <h4 style="color: #C9A227; margin-top: 0;">Cap Table 101</h4>
+          <p style="color: #B8B8B8; font-size: 0.9rem;">The building blocks: shares, classes, vesting, liquidation preferences.</p>
+        </div>
+        <div style="background-color: #0A0E1A; padding: 1.5rem; border-left: 3px solid #C9A227; border-radius: 4px;">
+          <h4 style="color: #C9A227; margin-top: 0;">Series A Preferred Round</h4>
+          <p style="color: #B8B8B8; font-size: 0.9rem;">Step-by-step walkthrough of a typical institutional Series A with all the math.</p>
+        </div>
+        <div style="background-color: #0A0E1A; padding: 1.5rem; border-left: 3px solid #C9A227; border-radius: 4px;">
+          <h4 style="color: #C9A227; margin-top: 0;">Convertible Note Math</h4>
+          <p style="color: #B8B8B8; font-size: 0.9rem;">SAFE vs. note. Valuation cap. Discount. Conversion at Series A.</p>
+        </div>
+        <div style="background-color: #0A0E1A; padding: 1.5rem; border-left: 3px solid #C9A227; border-radius: 4px;">
+          <h4 style="color: #C9A227; margin-top: 0;">Anti-Dilution Formulas</h4>
+          <p style="color: #B8B8B8; font-size: 0.9rem;">Weighted-average vs. full-ratchet. When each applies. The math.</p>
+        </div>
+        <div style="background-color: #0A0E1A; padding: 1.5rem; border-left: 3px solid #C9A227; border-radius: 4px;">
+          <h4 style="color: #C9A227; margin-top: 0;">Waterfall at Exit</h4>
+          <p style="color: #B8B8B8; font-size: 0.9rem;">$100M acquisition: who gets paid first, and how much, down to the last share.</p>
+        </div>
+        <div style="background-color: #0A0E1A; padding: 1.5rem; border-left: 3px solid #C9A227; border-radius: 4px;">
+          <h4 style="color: #C9A227; margin-top: 0;">401(k) Safe Harbor</h4>
+          <p style="color: #B8B8B8; font-size: 0.9rem;">Equity grants as compensation. Tax implications. Allocation rules.</p>
+        </div>
+        <div style="background-color: #0A0E1A; padding: 1.5rem; border-left: 3px solid #C9A227; border-radius: 4px;">
+          <h4 style="color: #C9A227; margin-top: 0;">Board Composition</h4>
+          <p style="color: #B8B8B8; font-size: 0.9rem;">Director seats. Voting vs. observation. Protective provisions.</p>
+        </div>
+        <div style="background-color: #0A0E1A; padding: 1.5rem; border-left: 3px solid #C9A227; border-radius: 4px;">
+          <h4 style="color: #C9A227; margin-top: 0;">Debt vs. Equity</h4>
+          <p style="color: #B8B8B8; font-size: 0.9rem;">Financing hierarchy. Senior vs. subordinated. Why it matters at exit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST SECTION -->
+  <section style="max-width: 900px; margin: 4rem auto; padding: 0 2rem; text-align: center;">
+    <h2 style="margin-bottom: 2rem;">Built for Rigor</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h4 style="color: #C9A227;">Every Formula Sourced</h4>
+        <p>No assumptions. Every calculation references its legal source or standard practice. You know where every number comes from.</p>
+      </div>
+      <div class="card">
+        <h4 style="color: #C9A227;">Audit-Ready</h4>
+        <p>Institutions use this to verify cap tables, waterfall scenarios, and deal math. Your numbers will match to the decimal.</p>
+      </div>
+      <div class="card">
+        <h4 style="color: #C9A227;">Always Updated</h4>
+        <p>When law changes or market practice shifts, we update the modules. All subscribers get the latest version automatically.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section style="text-align: center; background-color: #1A1F3A; border-top: 1px solid #D4AF37; border-bottom: 1px solid #D4AF37; padding: 3rem 2rem;">
+    <h2>Stop Guessing on Capital Mechanics</h2>
+    <p style="font-size: 1.1rem; color: #B8B8B8; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+      Every deal you evaluate will be clearer. Every cap table will be faster to verify. Join founders, investors, and operators who use GELDER's Capital Systems as their reference.
+    </p>
+    <a href="#" class="btn">Start Free Trial</a>
+    <a href="#" class="btn btn-secondary">Schedule a Demo</a>
+  </section>
+
+  <!-- FAQ -->
+  <section style="max-width: 900px; margin: 4rem auto; padding: 0 2rem;">
+    <h2 style="text-align: center; margin-bottom: 3rem;">Frequently Asked Questions</h2>
+    <div style="max-width: 800px; margin: 0 auto;">
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <h4>Do I need to be a lawyer or accountant to use this?</h4>
+        <p>No. Every module walks you through the concepts first, then the math. You don't need advanced background—just patience to read.</p>
+      </div>
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <h4>Can I download spreadsheets or export my cap table?</h4>
+        <p>Yes. Operator tier includes Excel exports of all calculations. You can build your own models using our formulas as reference.</p>
+      </div>
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <h4>What if I have a deal structure that's not in the modules?</h4>
+        <p>Email us. If it's a valid structure, we'll either build a module for it or show you how to adapt an existing one. Operator and Institutional tiers get direct support.</p>
+      </div>
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <h4>Is there a team plan?</h4>
+        <p>Yes. Institutional tier supports 5-10+ team members on one subscription. All members get full access to all modules.</p>
+      </div>
+      <div class="card" style="margin-bottom: 1.5rem;">
+        <h4>Money-back guarantee?</h4>
+        <p>30-day full refund, no questions. If it doesn't save you time or make your deal math clearer, we'll refund your subscription.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 GELDER & Co. All rights reserved.</p>
+    <p>Investment research and financial education. Not licensed advisory.</p>
+    <p><a href="/contact.html">Contact</a> | <a href="/faq.html">FAQ</a> | <a href="/privacy-policy.html">Privacy</a> | <a href="/terms-of-sale.html">Terms</a></p>
+    <p style="margin-top: 2rem; font-size: 0.9rem;">Growth. Excellence. Leadership. Discipline. Education. Research. — Building Confidence and Creating Opportunity.</p>
+  </footer>
+
+  <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
 </body>
 </html>
