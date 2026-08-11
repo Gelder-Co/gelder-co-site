@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Red Flag Scorecard — Ledger &amp; Co.</title>
+<title>The Red Flag Scorecard — GELDER &amp; Co.</title>
 <meta name="description" content="Twelve questions that surface the warning signs behind most bad investments. Free, instant, nothing saved.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -212,7 +212,7 @@
 
 <header>
   <div class="wrap">
-    <div class="brand">Ledger &amp; Co.</div>
+    <div class="brand">GELDER &amp; Co.</div>
     <h1>The Red Flag<br>Scorecard</h1>
     <p class="thesis">Twelve questions that surface the warning signs behind most bad investments — before your money is committed and hard to get back.</p>
     <p class="howto">Tap an answer for each question. Your risk score updates as you go. At the end you get a full breakdown of every flag you raised. Nothing is saved or sent anywhere.</p>
@@ -292,7 +292,7 @@
   <h2>The four patterns behind most bad deals</h2>
   <p class="sub">Every question above traces back to one of these.</p>
   <div class="pgrid">
-    <div class="p"><div class="k">01</div><h3>Return claims</h3><p>“Guaranteed,” “risk-free,” or unusually high and steady returns. Real markets do not behave that way.</p></div>
+    <div class="p"><div class="k">01</div><h3>Return claims</h3><p>"Guaranteed," "risk-free," or unusually high and steady returns. Real markets do not behave that way.</p></div>
     <div class="p"><div class="k">02</div><h3>Transparency</h3><p>You cannot get straight, written answers about how it makes money, who runs it, or where your funds go.</p></div>
     <div class="p"><div class="k">03</div><h3>Exit &amp; liquidity</h3><p>Getting your money back out is slow, penalised, or blocked. Trouble exiting is the classic late warning.</p></div>
     <div class="p"><div class="k">04</div><h3>Source credibility</h3><p>Unregistered sellers, unsolicited outreach, urgency, secrecy, or structures that ask you to recruit others.</p></div>
@@ -302,16 +302,16 @@
 <div class="sitecta">
   <div class="wrap">
     <div>
-      <h2>Built by Ledger &amp; Co.</h2>
+      <h2>Built by GELDER &amp; Co.</h2>
       <p>Financial education for people who'd rather run a process than a guess. Guides, calculators, and systems for every level.</p>
     </div>
-    <a class="btn primary" href="https://onestopdesignshop.github.io/Ledger-co-site/">Explore Ledger &amp; Co. →</a>
+    <a class="btn primary" href="https://gelder-co.github.io/">Explore GELDER &amp; Co. →</a>
   </div>
 </div>
 
 <footer>
   <p><strong>Educational tool — not financial, investment, or legal advice.</strong> This scorecard is not a guarantee or prediction of any outcome and cannot tell you whether a specific investment is safe or fraudulent. It helps you think through common warning signs. Regulatory resources named are US-based; other countries have equivalents. Always do your own research and consider consulting a licensed professional.</p>
-  <p style="margin-top:10px">© Ledger &amp; Co. · Leadership · Education · Discipline · Growth · Excellence · Research</p>
+  <p style="margin-top:10px">© GELDER &amp; Co. · Growth · Excellence · Leadership · Discipline · Education · Research</p>
 </footer>
 
 <script>
@@ -581,7 +581,7 @@ function update(){
   report.hidden = false;
 }
 
-let track = "a"; // report always shows full depth — the beginner version lives in the Learn view
+let track = "a";
 
 function item(i, lvl){
   const q = Q[i];
@@ -681,8 +681,8 @@ function buildReport(score, level, title, text, flags, unsure, clear){
 
   html += '<div class="actions">' +
     '<button class="btn primary" id="copyBtn" type="button">Copy my result</button>' +
-    '<a class="btn ghost" href="https://onestopdesignshop.github.io/Ledger-co-site/red-flag-guide.html">Read the full Field Guide</a>' +
-    '<a class="btn ghost" href="https://onestopdesignshop.github.io/Ledger-co-site/">Explore Ledger &amp; Co.</a>' +
+    '<a class="btn ghost" href="https://gelder-co.github.io/red-flag-guide.html">Read the full Field Guide</a>' +
+    '<a class="btn ghost" href="https://gelder-co.github.io/">Explore GELDER &amp; Co.</a>' +
     '</div>' +
     '<p class="note">Free to use, free to share. Nothing you entered was saved or sent anywhere.</p>';
 
@@ -692,7 +692,7 @@ function buildReport(score, level, title, text, flags, unsure, clear){
     "I scored " + score + "/100 on the Red Flag Scorecard — " + title.toUpperCase() +
     " (" + flags + " red " + (flags === 1 ? "flag" : "flags") + " out of 12).\n\n" +
     "It is a free 12-question check for warning signs before you put money into anything: " +
-    "onestopdesignshop.github.io/Ledger-co-site/red-flag-scorecard.html";
+    "gelder-co.github.io/red-flag-scorecard.html";
 
   document.getElementById("copyBtn").addEventListener("click", copyResult);
 }
